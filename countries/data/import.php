@@ -107,7 +107,57 @@ class numbers_countries_countries_data_import extends object_import {
 							'sm_mdldep_child_feature_code' => 'CM::PROVINCES'
 						]
 					]
-				]
+				],
+				[
+					'sm_feature_module_code' => 'CM',
+					'sm_feature_code' => 'CM::US_ONLY',
+					'sm_feature_type' => 30,
+					'sm_feature_name' => 'C/M U.S. Countries, Regions and Provinces',
+					'sm_feature_activation_model' => 'numbers_countries_countries_data_features_countries_us',
+					'sm_feature_inactive' => 0,
+					'numbers_backend_system_modules_model_module_dependencies' => [
+						[
+							'sm_mdldep_child_module_code' => 'CM',
+							'sm_mdldep_child_feature_code' => 'CM::PROVINCES'
+						]
+					]
+				],
+				[
+					'sm_feature_module_code' => 'CM',
+					'sm_feature_code' => 'CM::US_POSTAL',
+					'sm_feature_type' => 30,
+					'sm_feature_name' => 'C/M U.S. Zip Codes',
+					'sm_feature_activation_model' => 'numbers_countries_countries_data_features_postal_us',
+					'sm_feature_inactive' => 0,
+					'numbers_backend_system_modules_model_module_dependencies' => [
+						[
+							'sm_mdldep_child_module_code' => 'CM',
+							'sm_mdldep_child_feature_code' => 'CM::POSTAL_CODES'
+						],
+						[
+							'sm_mdldep_child_module_code' => 'CM',
+							'sm_mdldep_child_feature_code' => 'CM::US_ONLY'
+						]
+					]
+				],
+				[
+					'sm_feature_module_code' => 'CM',
+					'sm_feature_code' => 'CM::CA_POSTAL',
+					'sm_feature_type' => 30,
+					'sm_feature_name' => 'C/M Canadian Postal Codes',
+					'sm_feature_activation_model' => 'numbers_countries_countries_data_features_postal_ca',
+					'sm_feature_inactive' => 0,
+					'numbers_backend_system_modules_model_module_dependencies' => [
+						[
+							'sm_mdldep_child_module_code' => 'CM',
+							'sm_mdldep_child_feature_code' => 'CM::POSTAL_CODES'
+						],
+						[
+							'sm_mdldep_child_module_code' => 'CM',
+							'sm_mdldep_child_feature_code' => 'CM::CA_ONLY'
+						]
+					]
+				],
 			]
 		],
 	];

@@ -35,6 +35,10 @@ class numbers_countries_countries_model_regions extends object_table {
 	public $cache_tags = [];
 	public $cache_memory = true;
 
+	public $relation = [
+		'field' => 'cm_region_id',
+	];
+
 	public $data_asset = [
 		'classification' => 'public',
 		'protection' => 0,
