@@ -1,6 +1,6 @@
 <?php
 
-class numbers_countries_countries_data_features_import_countries extends object_import {
+class numbers_countries_countries_data_features_import_countries extends \Object\Import {
 	public $data = [
 		'regions' => [
 			'options' => [

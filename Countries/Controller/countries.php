@@ -1,17 +1,17 @@
 <?php
 
-class numbers_countries_countries_controller_countries extends object_controller_permission {
-	public function action_index() {
+class numbers_countries_countries_controller_countries extends \Object\Controller\Permission {
+	public function actionIndex() {
 		echo 'List';
 //		$list = new numbers_data_misc_countries_model_list_countries([
-//			'input' => request::input()
+//			'input' => \Request::input()
 //		]);
 //		echo $list->render();
 	}
-	public function action_edit() {
+	public function actionEdit() {
 		echo 'Edit';
 //		$form = new numbers_data_misc_countries_model_form_countries([
-//			'input' => request::input()
+//			'input' => \Request::input()
 //		]);
 //		echo $form->render();
 	}

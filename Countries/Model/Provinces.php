@@ -1,6 +1,7 @@
 <?php
 
-class numbers_countries_countries_model_provinces extends object_table {
+namespace Numbers\Countries\Countries\Model;
+class Provinces extends \Object\Table {
 	public $db_link;
 	public $db_link_flag;
 	public $module_code = 'CM';

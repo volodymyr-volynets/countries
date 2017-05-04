@@ -1,6 +1,7 @@
 <?php
 
-class numbers_countries_countries_model_postal_codes extends object_table {
+namespace Numbers\Countries\Countries\Model\Postal;
+class Codes extends \Object\Table {
 	public $db_link;
 	public $db_link_flag;
 	public $module_code = 'CM';
@@ -14,11 +15,11 @@ class numbers_countries_countries_model_postal_codes extends object_table {
 	public $columns = [
 		'cm_postal_tenant_id' => ['name' => 'Tenant #', 'domain' => 'tenant_id'],
 		'cm_postal_country_code' => ['name' => 'Country Code', 'domain' => 'country_code'],
-		'cm_postal_province_code' => ['name' => 'Province Code', 'domain' => 'province_code'],
+		'cm_postal_province_code' => ['name' => 'Province Code', 'domain' => 'province_code', 'null' => true],
 		'cm_postal_postal_code' => ['name' => 'Postal Code', 'domain' => 'postal_code'],
-		'cm_postal_city' => ['name' => 'City', 'domain' => 'name'],
-		'cm_postal_latitude' => ['name' => 'Latitude', 'domain' => 'geo_coordinate', 'null' => false],
-		'cm_postal_longitude' => ['name' => 'Longitude', 'domain' => 'geo_coordinate', 'null' => false],
+		'cm_postal_city' => ['name' => 'City', 'domain' => 'name', 'null' => true],
+		'cm_postal_latitude' => ['name' => 'Latitude', 'domain' => 'geo_coordinate', 'null' => true],
+		'cm_postal_longitude' => ['name' => 'Longitude', 'domain' => 'geo_coordinate', 'null' => true],
 		'cm_postal_inactive' => ['name' => 'Inactive', 'type' => 'boolean']
 	];
 	public $constraints = [
@@ -35,9 +36,7 @@ class numbers_countries_countries_model_postal_codes extends object_table {
 			]
 		]
 	];
-	public $indexes = [
-		//'cm_country_postal_codes_fulltext_idx' => ['type' => 'fulltext', 'columns' => ['cm_postal_country_code', 'cm_postal_province_code', 'cm_postal_postal_code', 'cm_postal_city']]
-	];
+	public $indexes = [];
 	public $history = false;
 	public $audit = false;
 	public $options_map = [];

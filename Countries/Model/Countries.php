@@ -1,6 +1,7 @@
 <?php
 
-class numbers_countries_countries_model_countries extends object_table {
+namespace Numbers\Countries\Countries\Model;
+class Countries extends \Object\Table {
 	public $db_link;
 	public $db_link_flag;
 	public $module_code = 'CM';
@@ -39,7 +40,7 @@ class numbers_countries_countries_model_countries extends object_table {
 		]
 	];
 	public $indexes = [
-		'cm_countries_fulltext_idx' => ['type' => 'fulltext', 'columns' => ['cm_country_name']] // todo add 'cm_country_code'
+		'cm_countries_fulltext_idx' => ['type' => 'fulltext', 'columns' => ['cm_country_name']]
 	];
 	public $history = false;
 	public $audit = false;
