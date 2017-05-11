@@ -20,16 +20,16 @@ class Provinces extends \Object\Table {
 		'cm_province_inactive' => ['name' => 'Inactive', 'type' => 'boolean']
 	];
 	public $constraints = [
-		'cm_country_provinces_pk' => ['type' => 'pk', 'columns' => ['cm_province_tenant_id', 'cm_province_country_code', 'cm_province_province_code']],
+		'cm_provinces_pk' => ['type' => 'pk', 'columns' => ['cm_province_tenant_id', 'cm_province_country_code', 'cm_province_province_code']],
 		'cm_province_country_code_fk' => [
 			'type' => 'fk',
 			'columns' => ['cm_province_tenant_id', 'cm_province_country_code'],
-			'foreign_model' => 'numbers_countries_countries_model_countries',
+			'foreign_model' => '\Numbers\Countries\Countries\Model\Countries',
 			'foreign_columns' => ['cm_country_tenant_id', 'cm_country_code'],
 		]
 	];
 	public $indexes = [
-		'cm_country_provinces_fulltext_idx' => ['type' => 'fulltext', 'columns' => ['cm_province_name']]
+		'cm_provinces_fulltext_idx' => ['type' => 'fulltext', 'columns' => ['cm_province_name']]
 	];
 	public $history = false;
 	public $audit = false;

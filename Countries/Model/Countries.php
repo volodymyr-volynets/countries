@@ -7,7 +7,7 @@ class Countries extends \Object\Table {
 	public $module_code = 'CM';
 	public $title = 'C/M Countries';
 	public $name = 'cm_countries';
-	public $pk = ['cm_country_code'];
+	public $pk = ['cm_country_tenant_id', 'cm_country_code'];
 	public $tenant = true;
 	public $orderby;
 	public $limit;
@@ -16,7 +16,7 @@ class Countries extends \Object\Table {
 		'cm_country_tenant_id' => ['name' => 'Tenant #', 'domain' => 'tenant_id'],
 		'cm_country_code' => ['name' => 'Country Code', 'domain' => 'country_code'],
 		'cm_country_name' => ['name' => 'Name', 'domain' => 'name'],
-		'cm_country_code3' => ['name' => 'Code(3)', 'domain' => 'country_code3'],
+		'cm_country_code3' => ['name' => 'Code(3)', 'domain' => 'country_code3', 'null' => true],
 		'cm_country_number' => ['name' => 'Number', 'domain' => 'country_number', 'null' => true],
 		'cm_country_region_id' => ['name' => 'Region #', 'domain' => 'country_number', 'null' => true],
 		'cm_country_sub_region_id' => ['name' => 'Sub Region #', 'domain' => 'country_number', 'null' => true],
@@ -29,13 +29,13 @@ class Countries extends \Object\Table {
 		'cm_country_region_id_fk' => [
 			'type' => 'fk',
 			'columns' => ['cm_country_tenant_id', 'cm_country_region_id'],
-			'foreign_model' => 'numbers_countries_countries_model_regions',
+			'foreign_model' => '\Numbers\Countries\Countries\Model\Regions',
 			'foreign_columns' => ['cm_region_tenant_id', 'cm_region_id']
 		],
 		'cm_country_sub_region_id_fk' => [
 			'type' => 'fk',
 			'columns' => ['cm_country_tenant_id', 'cm_country_sub_region_id'],
-			'foreign_model' => 'numbers_countries_countries_model_regions',
+			'foreign_model' => '\Numbers\Countries\Countries\Model\Regions',
 			'foreign_columns' => ['cm_region_tenant_id', 'cm_region_id']
 		]
 	];
@@ -55,7 +55,7 @@ class Countries extends \Object\Table {
 	public $cache_memory = true;
 
 	public $relation = [
-		'field' => 'cm_country_number',
+		'field' => 'cm_country_code',
 	];
 
 	public $data_asset = [

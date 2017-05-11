@@ -7,7 +7,7 @@ class Regions extends \Object\Table {
 	public $module_code = 'CM';
 	public $title = 'C/M Regions';
 	public $name = 'cm_regions';
-	public $pk = ['cm_region_id'];
+	public $pk = ['cm_region_tenant_id', 'cm_region_id'];
 	public $tenant = true;
 	public $orderby;
 	public $limit;
@@ -19,10 +19,10 @@ class Regions extends \Object\Table {
 		'cm_region_inactive' => ['name' => 'Inactive', 'type' => 'boolean']
 	];
 	public $constraints = [
-		'cm_country_regions_pk' => ['type' => 'pk', 'columns' => ['cm_region_tenant_id', 'cm_region_id']]
+		'cm_regions_pk' => ['type' => 'pk', 'columns' => ['cm_region_tenant_id', 'cm_region_id']]
 	];
 	public $indexes = [
-		'cm_country_regions_fulltext_idx' => ['type' => 'fulltext', 'columns' => ['cm_region_name']]
+		'cm_regions_fulltext_idx' => ['type' => 'fulltext', 'columns' => ['cm_region_name']]
 	];
 	public $history = false;
 	public $audit = false;
