@@ -6,6 +6,7 @@ class Addresses extends \Object\Table {
 	public $db_link_flag;
 	public $name = null;
 	public $pk = [];
+	public $tenant = true;
 	public $orderby = [
 		'wg_address_id' => SORT_ASC
 	];
@@ -26,7 +27,7 @@ class Addresses extends \Object\Table {
 	public $cache_tags = [];
 	public $cache_memory = false;
 
-	public $attributes = true;
+	public $attributes = false; // todo
 	public $details_pk = ['wg_address_type_code'];
 
 	/**

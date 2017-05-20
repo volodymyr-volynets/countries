@@ -1,6 +1,6 @@
 <?php
 
-namespace Numbers\Countries\Countries\Data;
+namespace Numbers\Countries\Currencies\Data;
 class System extends \Object\Import {
 	public $data = [
 		'controllers' => [
@@ -11,16 +11,16 @@ class System extends \Object\Import {
 			],
 			'data' => [
 				[
-					'sm_resource_id' => '::id::\Numbers\Countries\Countries\Controller\Countries',
-					'sm_resource_code' => '\Numbers\Countries\Countries\Controller\Countries',
+					'sm_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Currencies',
+					'sm_resource_code' => '\Numbers\Countries\Currencies\Controller\Currencies',
 					'sm_resource_type' => 100,
-					'sm_resource_name' => 'C/M Countries',
+					'sm_resource_name' => 'C/Y Currencies',
 					'sm_resource_description' => null,
-					'sm_resource_icon' => 'flag-o',
-					'sm_resource_module_code' => 'CM',
+					'sm_resource_icon' => 'euro',
+					'sm_resource_module_code' => 'CY',
 					'sm_resource_group1_name' => 'Operations',
 					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
+					'sm_resource_group3_name' => 'Currency Management',
 					'sm_resource_group4_name' => null,
 					'sm_resource_group5_name' => null,
 					'sm_resource_group6_name' => null,
@@ -38,7 +38,7 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0,
 					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
 						[
-							'sm_rsrcftr_feature_code' => 'CM::COUNTRIES',
+							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
 							'sm_rsrcftr_inactive' => 0
 						]
 					],
@@ -81,156 +81,16 @@ class System extends \Object\Import {
 					]
 				],
 				[
-					'sm_resource_id' => '::id::\Numbers\Countries\Countries\Controller\PostalCodes',
-					'sm_resource_code' => '\Numbers\Countries\Countries\Controller\PostalCodes',
+					'sm_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Types',
+					'sm_resource_code' => '\Numbers\Countries\Currencies\Controller\Types',
 					'sm_resource_type' => 100,
-					'sm_resource_name' => 'C/M Postal Codes',
-					'sm_resource_description' => null,
-					'sm_resource_icon' => 'compass',
-					'sm_resource_module_code' => 'CM',
-					'sm_resource_group1_name' => 'Operations',
-					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
-					'sm_resource_group4_name' => null,
-					'sm_resource_group5_name' => null,
-					'sm_resource_group6_name' => null,
-					'sm_resource_group7_name' => null,
-					'sm_resource_group8_name' => null,
-					'sm_resource_group9_name' => null,
-					'sm_resource_acl_public' => 0,
-					'sm_resource_acl_authorized' => 1,
-					'sm_resource_acl_permission' => 1,
-					'sm_resource_menu_acl_resource_id' => null,
-					'sm_resource_menu_acl_method_code' => null,
-					'sm_resource_menu_acl_action_id' => null,
-					'sm_resource_menu_url' => null,
-					'sm_resource_menu_options_generator' => null,
-					'sm_resource_inactive' => 0,
-					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
-						[
-							'sm_rsrcftr_feature_code' => 'CM::COUNTRIES',
-							'sm_rsrcftr_inactive' => 0
-						]
-					],
-					'\Numbers\Backend\System\Modules\Model\Resource\Map' => [
-						[
-							'sm_rsrcmp_method_code' => 'Index',
-							'sm_rsrcmp_action_id' => '::id::List_View',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Index',
-							'sm_rsrcmp_action_id' => '::id::List_Export',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_View',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_New',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_Edit',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_Inactivate',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_Delete',
-							'sm_rsrcmp_inactive' => 0
-						]
-					]
-				],
-				[
-					'sm_resource_id' => '::id::\Numbers\Countries\Countries\Controller\Provinces',
-					'sm_resource_code' => '\Numbers\Countries\Countries\Controller\Provinces',
-					'sm_resource_type' => 100,
-					'sm_resource_name' => 'C/M Provinces',
-					'sm_resource_description' => null,
-					'sm_resource_icon' => 'circle',
-					'sm_resource_module_code' => 'CM',
-					'sm_resource_group1_name' => 'Operations',
-					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
-					'sm_resource_group4_name' => null,
-					'sm_resource_group5_name' => null,
-					'sm_resource_group6_name' => null,
-					'sm_resource_group7_name' => null,
-					'sm_resource_group8_name' => null,
-					'sm_resource_group9_name' => null,
-					'sm_resource_acl_public' => 0,
-					'sm_resource_acl_authorized' => 1,
-					'sm_resource_acl_permission' => 1,
-					'sm_resource_menu_acl_resource_id' => null,
-					'sm_resource_menu_acl_method_code' => null,
-					'sm_resource_menu_acl_action_id' => null,
-					'sm_resource_menu_url' => null,
-					'sm_resource_menu_options_generator' => null,
-					'sm_resource_inactive' => 0,
-					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
-						[
-							'sm_rsrcftr_feature_code' => 'CM::COUNTRIES',
-							'sm_rsrcftr_inactive' => 0
-						]
-					],
-					'\Numbers\Backend\System\Modules\Model\Resource\Map' => [
-						[
-							'sm_rsrcmp_method_code' => 'Index',
-							'sm_rsrcmp_action_id' => '::id::List_View',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Index',
-							'sm_rsrcmp_action_id' => '::id::List_Export',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_View',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_New',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_Edit',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_Inactivate',
-							'sm_rsrcmp_inactive' => 0
-						],
-						[
-							'sm_rsrcmp_method_code' => 'Edit',
-							'sm_rsrcmp_action_id' => '::id::Record_Delete',
-							'sm_rsrcmp_inactive' => 0
-						]
-					]
-				],
-				[
-					'sm_resource_id' => '::id::\Numbers\Countries\Countries\Controller\Regions',
-					'sm_resource_code' => '\Numbers\Countries\Countries\Controller\Regions',
-					'sm_resource_type' => 100,
-					'sm_resource_name' => 'C/M Regions',
+					'sm_resource_name' => 'C/Y Types',
 					'sm_resource_description' => null,
 					'sm_resource_icon' => 'object-group',
-					'sm_resource_module_code' => 'CM',
+					'sm_resource_module_code' => 'CY',
 					'sm_resource_group1_name' => 'Operations',
 					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
+					'sm_resource_group3_name' => 'Currency Management',
 					'sm_resource_group4_name' => null,
 					'sm_resource_group5_name' => null,
 					'sm_resource_group6_name' => null,
@@ -248,7 +108,7 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0,
 					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
 						[
-							'sm_rsrcftr_feature_code' => 'CM::COUNTRIES',
+							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
 							'sm_rsrcftr_inactive' => 0
 						]
 					],
@@ -291,16 +151,16 @@ class System extends \Object\Import {
 					]
 				],
 				[
-					'sm_resource_id' => '::id::\Numbers\Countries\Countries\Controller\Address\Types',
-					'sm_resource_code' => '\Numbers\Countries\Countries\Controller\Address\Types',
+					'sm_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Rates',
+					'sm_resource_code' => '\Numbers\Countries\Currencies\Controller\Rates',
 					'sm_resource_type' => 100,
-					'sm_resource_name' => 'C/M Address Types',
+					'sm_resource_name' => 'C/Y Rates',
 					'sm_resource_description' => null,
-					'sm_resource_icon' => 'circle-o',
-					'sm_resource_module_code' => 'CM',
+					'sm_resource_icon' => 'bitcoin',
+					'sm_resource_module_code' => 'CY',
 					'sm_resource_group1_name' => 'Operations',
 					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
+					'sm_resource_group3_name' => 'Currency Management',
 					'sm_resource_group4_name' => null,
 					'sm_resource_group5_name' => null,
 					'sm_resource_group6_name' => null,
@@ -318,7 +178,7 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0,
 					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
 						[
-							'sm_rsrcftr_feature_code' => 'CM::COUNTRIES',
+							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
 							'sm_rsrcftr_inactive' => 0
 						]
 					],
@@ -356,6 +216,46 @@ class System extends \Object\Import {
 						[
 							'sm_rsrcmp_method_code' => 'Edit',
 							'sm_rsrcmp_action_id' => '::id::Record_Delete',
+							'sm_rsrcmp_inactive' => 0
+						]
+					]
+				],
+				[
+					'sm_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Online',
+					'sm_resource_code' => '\Numbers\Countries\Currencies\Controller\Online',
+					'sm_resource_type' => 100,
+					'sm_resource_name' => 'C/Y Online Rates',
+					'sm_resource_description' => null,
+					'sm_resource_icon' => 'yen',
+					'sm_resource_module_code' => 'CY',
+					'sm_resource_group1_name' => 'Operations',
+					'sm_resource_group2_name' => 'System Management',
+					'sm_resource_group3_name' => 'Currency Management',
+					'sm_resource_group4_name' => null,
+					'sm_resource_group5_name' => null,
+					'sm_resource_group6_name' => null,
+					'sm_resource_group7_name' => null,
+					'sm_resource_group8_name' => null,
+					'sm_resource_group9_name' => null,
+					'sm_resource_acl_public' => 0,
+					'sm_resource_acl_authorized' => 1,
+					'sm_resource_acl_permission' => 1,
+					'sm_resource_menu_acl_resource_id' => null,
+					'sm_resource_menu_acl_method_code' => null,
+					'sm_resource_menu_acl_action_id' => null,
+					'sm_resource_menu_url' => null,
+					'sm_resource_menu_options_generator' => null,
+					'sm_resource_inactive' => 0,
+					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
+						[
+							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
+							'sm_rsrcftr_inactive' => 0
+						]
+					],
+					'\Numbers\Backend\System\Modules\Model\Resource\Map' => [
+						[
+							'sm_rsrcmp_method_code' => 'Edit',
+							'sm_rsrcmp_action_id' => '::id::Record_View',
 							'sm_rsrcmp_inactive' => 0
 						]
 					]
@@ -370,13 +270,13 @@ class System extends \Object\Import {
 			],
 			'data' => [
 				[
-					'sm_resource_id' => '::id::\Menu\Operations\System\Management\Country\Management',
-					'sm_resource_code' => '\Menu\Operations\System\Management\Country\Management',
+					'sm_resource_id' => '::id::\Menu\Operations\System\Management\Currency\Management',
+					'sm_resource_code' => '\Menu\Operations\System\Management\Currency\Management',
 					'sm_resource_type' => 299,
-					'sm_resource_name' => 'Country Management',
+					'sm_resource_name' => 'Currency Management',
 					'sm_resource_description' => null,
-					'sm_resource_icon' => 'globe',
-					'sm_resource_module_code' => 'CM',
+					'sm_resource_icon' => 'dollar',
+					'sm_resource_module_code' => 'CY',
 					'sm_resource_group1_name' => 'Operations',
 					'sm_resource_group2_name' => 'System Management',
 					'sm_resource_group3_name' => null,
@@ -397,16 +297,16 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0
 				],
 				[
-					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Countries\Controller\Countries',
-					'sm_resource_code' => '\Menu\Numbers\Countries\Countries\Controller\Countries',
+					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Currencies\Controller\Currencies',
+					'sm_resource_code' => '\Menu\Numbers\Countries\Currencies\Controller\Currencies',
 					'sm_resource_type' => 200,
-					'sm_resource_name' => 'Countries',
+					'sm_resource_name' => 'Currencies',
 					'sm_resource_description' => null,
-					'sm_resource_icon' => 'flag-o',
-					'sm_resource_module_code' => 'CM',
+					'sm_resource_icon' => 'euro',
+					'sm_resource_module_code' => 'CY',
 					'sm_resource_group1_name' => 'Operations',
 					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
+					'sm_resource_group3_name' => 'Currency Management',
 					'sm_resource_group4_name' => null,
 					'sm_resource_group5_name' => null,
 					'sm_resource_group6_name' => null,
@@ -416,78 +316,24 @@ class System extends \Object\Import {
 					'sm_resource_acl_public' => 0,
 					'sm_resource_acl_authorized' => 0,
 					'sm_resource_acl_permission' => 1,
-					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Countries\Controller\Countries',
+					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Currencies',
 					'sm_resource_menu_acl_method_code' => 'Index',
 					'sm_resource_menu_acl_action_id' => '::id::List_View',
-					'sm_resource_menu_url' => '/Numbers/Countries/Countries/Controller/Countries',
+					'sm_resource_menu_url' => '/Numbers/Countries/Currencies/Controller/Currencies',
 					'sm_resource_menu_options_generator' => null,
 					'sm_resource_inactive' => 0
 				],
 				[
-					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Countries\Controller\PostalCodes',
-					'sm_resource_code' => '\Menu\Numbers\Countries\Countries\Controller\PostalCodes',
+					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Currencies\Controller\Types',
+					'sm_resource_code' => '\Menu\Numbers\Countries\Currencies\Controller\Types',
 					'sm_resource_type' => 200,
-					'sm_resource_name' => 'Postal Codes',
-					'sm_resource_description' => null,
-					'sm_resource_icon' => 'compass',
-					'sm_resource_module_code' => 'CM',
-					'sm_resource_group1_name' => 'Operations',
-					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
-					'sm_resource_group4_name' => null,
-					'sm_resource_group5_name' => null,
-					'sm_resource_group6_name' => null,
-					'sm_resource_group7_name' => null,
-					'sm_resource_group8_name' => null,
-					'sm_resource_group9_name' => null,
-					'sm_resource_acl_public' => 0,
-					'sm_resource_acl_authorized' => 0,
-					'sm_resource_acl_permission' => 1,
-					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Countries\Controller\PostalCodes',
-					'sm_resource_menu_acl_method_code' => 'Index',
-					'sm_resource_menu_acl_action_id' => '::id::List_View',
-					'sm_resource_menu_url' => '/Numbers/Countries/Countries/Controller/PostalCodes',
-					'sm_resource_menu_options_generator' => null,
-					'sm_resource_inactive' => 0
-				],
-				[
-					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Countries\Controller\Provinces',
-					'sm_resource_code' => '\Menu\Numbers\Countries\Countries\Controller\Provinces',
-					'sm_resource_type' => 200,
-					'sm_resource_name' => 'Provinces',
-					'sm_resource_description' => null,
-					'sm_resource_icon' => 'circle',
-					'sm_resource_module_code' => 'CM',
-					'sm_resource_group1_name' => 'Operations',
-					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
-					'sm_resource_group4_name' => null,
-					'sm_resource_group5_name' => null,
-					'sm_resource_group6_name' => null,
-					'sm_resource_group7_name' => null,
-					'sm_resource_group8_name' => null,
-					'sm_resource_group9_name' => null,
-					'sm_resource_acl_public' => 0,
-					'sm_resource_acl_authorized' => 0,
-					'sm_resource_acl_permission' => 1,
-					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Countries\Controller\Provinces',
-					'sm_resource_menu_acl_method_code' => 'Index',
-					'sm_resource_menu_acl_action_id' => '::id::List_View',
-					'sm_resource_menu_url' => '/Numbers/Countries/Countries/Controller/Provinces',
-					'sm_resource_menu_options_generator' => null,
-					'sm_resource_inactive' => 0
-				],
-				[
-					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Countries\Controller\Regions',
-					'sm_resource_code' => '\Menu\Numbers\Countries\Countries\Controller\Regions',
-					'sm_resource_type' => 200,
-					'sm_resource_name' => 'Regions',
+					'sm_resource_name' => 'Types',
 					'sm_resource_description' => null,
 					'sm_resource_icon' => 'object-group',
-					'sm_resource_module_code' => 'CM',
+					'sm_resource_module_code' => 'CY',
 					'sm_resource_group1_name' => 'Operations',
 					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
+					'sm_resource_group3_name' => 'Currency Management',
 					'sm_resource_group4_name' => null,
 					'sm_resource_group5_name' => null,
 					'sm_resource_group6_name' => null,
@@ -497,24 +343,24 @@ class System extends \Object\Import {
 					'sm_resource_acl_public' => 0,
 					'sm_resource_acl_authorized' => 0,
 					'sm_resource_acl_permission' => 1,
-					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Countries\Controller\Regions',
+					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Types',
 					'sm_resource_menu_acl_method_code' => 'Index',
 					'sm_resource_menu_acl_action_id' => '::id::List_View',
-					'sm_resource_menu_url' => '/Numbers/Countries/Countries/Controller/Regions',
+					'sm_resource_menu_url' => '/Numbers/Countries/Currencies/Controller/Types',
 					'sm_resource_menu_options_generator' => null,
 					'sm_resource_inactive' => 0
 				],
 				[
-					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Countries\Controller\Address\Types',
-					'sm_resource_code' => '\Menu\Numbers\Countries\Countries\Controller\Address\Types',
+					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Currencies\Controller\Rates',
+					'sm_resource_code' => '\Menu\Numbers\Countries\Currencies\Controller\Rates',
 					'sm_resource_type' => 200,
-					'sm_resource_name' => 'Address Types',
+					'sm_resource_name' => 'Rates',
 					'sm_resource_description' => null,
-					'sm_resource_icon' => 'circle-o',
-					'sm_resource_module_code' => 'CM',
+					'sm_resource_icon' => 'bitcoin',
+					'sm_resource_module_code' => 'CY',
 					'sm_resource_group1_name' => 'Operations',
 					'sm_resource_group2_name' => 'System Management',
-					'sm_resource_group3_name' => 'Country Management',
+					'sm_resource_group3_name' => 'Currency Management',
 					'sm_resource_group4_name' => null,
 					'sm_resource_group5_name' => null,
 					'sm_resource_group6_name' => null,
@@ -524,10 +370,37 @@ class System extends \Object\Import {
 					'sm_resource_acl_public' => 0,
 					'sm_resource_acl_authorized' => 0,
 					'sm_resource_acl_permission' => 1,
-					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Countries\Controller\Address\Types',
+					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Rates',
 					'sm_resource_menu_acl_method_code' => 'Index',
 					'sm_resource_menu_acl_action_id' => '::id::List_View',
-					'sm_resource_menu_url' => '/Numbers/Countries/Countries/Controller/Address/Types',
+					'sm_resource_menu_url' => '/Numbers/Countries/Currencies/Controller/Rates',
+					'sm_resource_menu_options_generator' => null,
+					'sm_resource_inactive' => 0
+				],
+				[
+					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Currencies\Controller\Online',
+					'sm_resource_code' => '\Menu\Numbers\Countries\Currencies\Controller\Online',
+					'sm_resource_type' => 200,
+					'sm_resource_name' => 'Online Rates',
+					'sm_resource_description' => null,
+					'sm_resource_icon' => 'yen',
+					'sm_resource_module_code' => 'CY',
+					'sm_resource_group1_name' => 'Operations',
+					'sm_resource_group2_name' => 'System Management',
+					'sm_resource_group3_name' => 'Currency Management',
+					'sm_resource_group4_name' => null,
+					'sm_resource_group5_name' => null,
+					'sm_resource_group6_name' => null,
+					'sm_resource_group7_name' => null,
+					'sm_resource_group8_name' => null,
+					'sm_resource_group9_name' => null,
+					'sm_resource_acl_public' => 0,
+					'sm_resource_acl_authorized' => 0,
+					'sm_resource_acl_permission' => 1,
+					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Online',
+					'sm_resource_menu_acl_method_code' => 'Edit',
+					'sm_resource_menu_acl_action_id' => '::id::Record_View',
+					'sm_resource_menu_url' => '/Numbers/Countries/Currencies/Controller/Online/_Edit',
 					'sm_resource_menu_options_generator' => null,
 					'sm_resource_inactive' => 0
 				]
