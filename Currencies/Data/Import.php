@@ -14,6 +14,7 @@ class Import extends \Object\Import {
 					'sm_module_code' => 'CY',
 					'sm_module_type' => 20,
 					'sm_module_name' => 'C/Y Currency Management',
+					'sm_module_abbreviation' => 'C/Y',
 					'sm_module_icon' => 'dollar',
 					'sm_module_transactions' => 0,
 					'sm_module_multiple' => 0,

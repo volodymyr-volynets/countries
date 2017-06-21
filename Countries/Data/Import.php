@@ -14,6 +14,7 @@ class Import extends \Object\Import {
 					'sm_module_code' => 'CM',
 					'sm_module_type' => 20,
 					'sm_module_name' => 'C/M Country Management',
+					'sm_module_abbreviation' => 'C/M',
 					'sm_module_icon' => 'globe',
 					'sm_module_transactions' => 0,
 					'sm_module_multiple' => 0,
