@@ -13,7 +13,7 @@ class Currencies extends \Object\Import {
 		],
 		'currency_types' => [
 			'options' => [
-				'pk' => ['tm_structure_code'],
+				'pk' => ['cy_currtype_tenant_id', 'cy_currtype_code'],
 				'model' => '\Numbers\Countries\Currencies\Model\Types',
 				'method' => 'save_insert_new'
 			],
@@ -48,16 +48,18 @@ class Currencies extends \Object\Import {
 	public function overrides() {
 		// step 1: countries and regions
 		$currencies = [];
-		$data = \Numbers\Backend\Exports\CSV\Base::import(__DIR__ . '/currencies.csv');
-		unset($data['main'][0]);
-		foreach ($data['main'] as $k => $v) {
-			$currencies[$v[1]] = [
-				'cy_currency_code' => $v[0],
-				'cy_currency_name' => $v[1],
-				'cy_currency_symbol' => $v[2],
-				'cy_currency_fraction_digits' => (int) $v[3],
-				'cy_currency_inactive' => (int) $v[4]
-			];
+		$data = \Numbers\Backend\IO\CSV\Imports::read(__DIR__ . '/currencies.csv');
+		if ($data['success']) {
+			unset($data['data']['Main Sheet'][0]);
+			foreach ($data['data']['Main Sheet'] as $k => $v) {
+				$currencies[$v[1]] = [
+					'cy_currency_code' => $v[0],
+					'cy_currency_name' => $v[1],
+					'cy_currency_symbol' => $v[2],
+					'cy_currency_fraction_digits' => (int) $v[3],
+					'cy_currency_inactive' => (int) $v[4]
+				];
+			}
 		}
 		$this->data['currencies']['data'] = $currencies;
 	}

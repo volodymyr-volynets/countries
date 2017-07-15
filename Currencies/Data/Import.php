@@ -75,5 +75,62 @@ class Import extends \Object\Import {
 				]
 			]
 		],
+		'tasks' => [
+			'options' => [
+				'pk' => ['ts_task_code'],
+				'model' => '\Numbers\Users\TaskScheduler\Model\Collection\Tasks',
+				'method' => 'save'
+			],
+			'data' => [
+				[
+					'ts_task_code' => 'CY_TASK_ONLINE_RATES',
+					'ts_task_name' => 'C/Y Task Online Rates',
+					'ts_task_model' => '\Numbers\Countries\Currencies\Tasks\OnlineRates',
+					'ts_task_inactive' => 0,
+					'\Numbers\Users\TaskScheduler\Model\TaskParameters' => [
+						[
+							'ts_tskparam_name' => 'provider_code',
+							'ts_tskparam_description' => 'Provider Code',
+							'ts_tskparam_default' => null,
+							'ts_tskparam_mandatory' => 1
+						],
+						[
+							'ts_tskparam_name' => 'source_currency_code',
+							'ts_tskparam_description' => 'Source Currency Code',
+							'ts_tskparam_default' => null,
+							'ts_tskparam_mandatory' => 1
+						],
+						[
+							'ts_tskparam_name' => 'home_currency_code',
+							'ts_tskparam_description' => 'Home Currency Code',
+							'ts_tskparam_default' => null,
+							'ts_tskparam_mandatory' => 1
+						],
+						[
+							'ts_tskparam_name' => 'currency_type',
+							'ts_tskparam_description' => 'Currency Type',
+							'ts_tskparam_default' => null,
+							'ts_tskparam_mandatory' => 1
+						],
+						[
+							'ts_tskparam_name' => 'organization_1',
+							'ts_tskparam_description' => 'Organization 1',
+							'ts_tskparam_default' => null,
+							'ts_tskparam_mandatory' => 1
+						],
+						[
+							'ts_tskparam_name' => 'organization_2',
+							'ts_tskparam_description' => 'Organization 2',
+							'ts_tskparam_default' => null
+						],
+						[
+							'ts_tskparam_name' => 'organization_3',
+							'ts_tskparam_description' => 'Organization 3',
+							'ts_tskparam_default' => null
+						],
+					]
+				]
+			]
+		],
 	];
 }

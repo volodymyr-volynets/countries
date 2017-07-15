@@ -58,7 +58,6 @@ class Online extends \Object\Form\Wrapper\Base {
 				];
 				return '<a class="form-control form-control-no-border" href="/Numbers/Countries/Currencies/Controller/Rates/_Edit?' . http_build_query2($params) . '">' . \Format::currencyRate($result['rate']) . '</a>';
 			}
-			print_r2($result);
 		}
 		return '';
 	}

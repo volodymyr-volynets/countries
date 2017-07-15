@@ -170,6 +170,7 @@ class Addresses extends \Object\Table {
 		}
 		// collection
 		array_key_set($form->collection['details'], $this->virtual_class_name, [
+			'name' => 'Addresses',
 			'pk' => $this->pk,
 			'type' => '1M',
 			'map' => $this->map,

@@ -62,8 +62,9 @@ class Rates extends \Object\Form\Wrapper\List2 {
 				'blank' => ['order' => 1, 'row_order' => 200, 'label_name' => ' ', 'percent' => 15],
 				'cy_currrate_source_currency_code' => ['order' => 2, 'label_name' => 'Source Currency', 'domain' => 'currency_code', 'percent' => 15],
 				'cy_currrate_home_currency_code' => ['order' => 3, 'label_name' => 'Home Currency', 'domain' => 'currency_code', 'percent' => 15],
-				'cy_currrate_rate' => ['order' => 4, 'label_name' => 'Rate', 'domain' => 'currency_rate', 'percent' => 15],
-				'cy_currrate_provider_name' => ['order' => 5, 'label_name' => 'Provider Name', 'domain' => 'name', 'null' => true, 'percent' => 40],
+				'cy_currrate_rate' => ['order' => 4, 'label_name' => 'Rate', 'domain' => 'currency_rate', 'percent' => 10],
+				'blank2' => ['order' => 5, 'label_name' => ' ', 'percent' => 5],
+				'cy_currrate_provider_name' => ['order' => 6, 'label_name' => 'Provider Name', 'domain' => 'name', 'null' => true, 'percent' => 45],
 			]
 		]
 	];
