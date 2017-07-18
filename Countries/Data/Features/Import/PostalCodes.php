@@ -19,9 +19,9 @@ class PostalCodes extends \Object\Import {
 	public function overrides() {
 		// importing postal codes
 		if (!empty($this->options['cm_postal_country_code'])) {
-			$data = \Numbers\Backend\Exports\CSV\Base::import(__DIR__ . '/postal_codes_' . strtolower($this->options['cm_postal_country_code']) . '.csv');
-			unset($data['main'][0]);
-			foreach ($data['main'] as $k => $v) {
+			$data = \Numbers\Backend\IO\CSV\Imports::read(__DIR__ . '/postal_codes_' . strtolower($this->options['cm_postal_country_code']) . '.csv');
+			unset($data['data']['Main Sheet'][0]);
+			foreach ($data['data']['Main Sheet'] as $k => $v) {
 				$postal_code = $v[2] . '';
 				if ($this->options['cm_postal_country_code'] == 'US') {
 					if (strlen($postal_code) < 5) $postal_code = str_pad($postal_code, 5, '0', STR_PAD_LEFT);

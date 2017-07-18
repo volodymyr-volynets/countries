@@ -52,10 +52,6 @@ class PostalCodes extends \Object\Table {
 	public $cache_tags = [];
 	public $cache_memory = false;
 
-	public $relation = [
-		'field' => 'cm_postal_relation_id',
-	];
-
 	public $data_asset = [
 		'classification' => 'public',
 		'protection' => 0,

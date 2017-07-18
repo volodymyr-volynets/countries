@@ -7,7 +7,7 @@ class Countries extends \Object\Import {
 			'options' => [
 				'pk' => ['cm_region_tenant_id', 'cm_region_id'],
 				'model' => '\Numbers\Countries\Countries\Model\Regions',
-				'method' => 'save'
+				'method' => 'save_insert_new'
 			],
 			'data' => []
 		],
@@ -15,7 +15,7 @@ class Countries extends \Object\Import {
 			'options' => [
 				'pk' => ['cm_country_tenant_id', 'cm_country_code'],
 				'model' => '\Numbers\Countries\Countries\Model\Countries',
-				'method' => 'save'
+				'method' => 'save_insert_new'
 			],
 			'data' => []
 		],
@@ -23,7 +23,7 @@ class Countries extends \Object\Import {
 			'options' => [
 				'pk' => ['cm_province_tenant_id', 'cm_province_country_code', 'cm_province_province_code'],
 				'model' => '\Numbers\Countries\Countries\Model\Provinces',
-				'method' => 'save'
+				'method' => 'save_insert_new'
 			],
 			'data' => []
 		]
@@ -36,9 +36,9 @@ class Countries extends \Object\Import {
 		// step 1: countries and regions
 		$countries = [];
 		$regions = [];
-		$data = \Numbers\Backend\Exports\CSV\Base::import(__DIR__ . '/countries.csv');
-		unset($data['main'][0]);
-		foreach ($data['main'] as $k => $v) {
+		$data = \Numbers\Backend\IO\CSV\Imports::read(__DIR__ . '/countries.csv');
+		unset($data['data']['Main Sheet'][0]);
+		foreach ($data['data']['Main Sheet'] as $k => $v) {
 			// if we need to import only specific countries
 			if (!empty($this->options['cm_country_code']) && $this->options['cm_country_code'] != $v[1]) continue;
 			$countries[$v[1]] = [
@@ -69,9 +69,9 @@ class Countries extends \Object\Import {
 		$this->data['countries']['data'] = $countries;
 		// step 2: provinces
 		$provinces = [];
-		$data = \Numbers\Backend\Exports\CSV\Base::import(__DIR__ . '/provinces.csv');
-		unset($data['main'][0]);
-		foreach ($data['main'] as $k => $v) {
+		$data = \Numbers\Backend\IO\CSV\Imports::read(__DIR__ . '/provinces.csv');
+		unset($data['data']['Main Sheet'][0]);
+		foreach ($data['data']['Main Sheet'] as $k => $v) {
 			// if we need to import only specific countries
 			if (!empty($this->options['cm_country_code']) && $this->options['cm_country_code'] != $v[2]) continue;
 			$provinces[] = [
