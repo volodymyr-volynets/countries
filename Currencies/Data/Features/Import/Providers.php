@@ -5,7 +5,7 @@ class Providers extends \Object\Import {
 	public $data = [
 		'providers' => [
 			'options' => [
-				'pk' => ['tm_structure_code'],
+				'pk' => ['cy_provider_code'],
 				'model' => '\Numbers\Countries\Currencies\Model\Providers',
 				'method' => 'save_insert_new'
 			],
