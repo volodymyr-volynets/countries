@@ -8,7 +8,8 @@ class Currencies extends \Object\Form\Wrapper\Base {
 		'actions' => [
 			'refresh' => true,
 			'back' => true,
-			'new' => true
+			'new' => true,
+			'import' => true
 		]
 	];
 	public $containers = [
@@ -38,9 +39,11 @@ class Currencies extends \Object\Form\Wrapper\Base {
 		]
 	];
 	public $collection = [
+		'name' => 'Currencies',
 		'model' => '\Numbers\Countries\Currencies\Model\Currencies',
 		'details' => [
 			'\Numbers\Countries\Currencies\Model\Currency\Organizations' => [
+				'name' => 'Organizations',
 				'pk' => ['cy_currorg_tenant_id', 'cy_currorg_currency_code', 'cy_currorg_organization_id'],
 				'type' => '1M',
 				'map' => ['cy_currency_tenant_id' => 'cy_currorg_tenant_id', 'cy_currency_code' => 'cy_currorg_currency_code']

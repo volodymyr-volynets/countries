@@ -14,4 +14,11 @@ class Countries extends \Object\Controller\Permission {
 		]);
 		echo $form->render();
 	}
+	public function actionImport() {
+		$form = new \Object\Form\Wrapper\Import([
+			'model' => '\Numbers\Countries\Countries\Form\Countries',
+			'input' => \Request::input()
+		]);
+		echo $form->render();
+	}
 }

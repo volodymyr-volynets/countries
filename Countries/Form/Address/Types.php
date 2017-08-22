@@ -8,7 +8,8 @@ class Types extends \Object\Form\Wrapper\Base {
 		'actions' => [
 			'refresh' => true,
 			'back' => true,
-			'new' => true
+			'new' => true,
+			'import' => true
 		]
 	];
 	public $containers = [
@@ -35,9 +36,11 @@ class Types extends \Object\Form\Wrapper\Base {
 		]
 	];
 	public $collection = [
+		'name' => 'Address Types',
 		'model' => '\Numbers\Countries\Countries\Model\Address\Types',
 		'details' => [
 			'\Numbers\Countries\Countries\Model\Address\Type\Organizations' => [
+				'name' => 'Organizations',
 				'pk' => ['cm_addrtporg_tenant_id', 'cm_addrtporg_type_code', 'cm_addrtporg_organization_id'],
 				'type' => '1M',
 				'map' => ['cm_addrtype_tenant_id' => 'cm_addrtporg_tenant_id', 'cm_addrtype_code' => 'cm_addrtporg_type_code']

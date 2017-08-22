@@ -8,7 +8,8 @@ class PostalCodes extends \Object\Form\Wrapper\Base {
 		'actions' => [
 			'refresh' => true,
 			'back' => true,
-			'new' => true
+			'new' => true,
+			'import' => true
 		]
 	];
 	public $containers = [
@@ -37,6 +38,7 @@ class PostalCodes extends \Object\Form\Wrapper\Base {
 		]
 	];
 	public $collection = [
+		'name' => 'Postal Codes',
 		'model' => '\Numbers\Countries\Countries\Model\PostalCodes'
 	];
 }
