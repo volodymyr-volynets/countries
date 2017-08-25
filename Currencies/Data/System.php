@@ -39,7 +39,7 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0,
 					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
 						[
-							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
+							'sm_rsrcftr_feature_code' => 'CY::CURRENCIES',
 							'sm_rsrcftr_inactive' => 0
 						]
 					],
@@ -120,7 +120,7 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0,
 					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
 						[
-							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
+							'sm_rsrcftr_feature_code' => 'CY::CURRENCIES',
 							'sm_rsrcftr_inactive' => 0
 						]
 					],
@@ -201,7 +201,7 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0,
 					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
 						[
-							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
+							'sm_rsrcftr_feature_code' => 'CY::CURRENCIES',
 							'sm_rsrcftr_inactive' => 0
 						]
 					],
@@ -282,7 +282,7 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0,
 					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
 						[
-							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
+							'sm_rsrcftr_feature_code' => 'CY::CURRENCIES',
 							'sm_rsrcftr_inactive' => 0
 						]
 					],
@@ -323,7 +323,11 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0,
 					'\Numbers\Backend\System\Modules\Model\Resource\Features' => [
 						[
-							'sm_rsrcftr_feature_code' => 'CM::CURRENCIES',
+							'sm_rsrcftr_feature_code' => 'CY::CURRENCIES',
+							'sm_rsrcftr_inactive' => 0
+						],
+						[
+							'sm_rsrcftr_feature_code' => 'TS::TASK_SCHEDULER',
 							'sm_rsrcftr_inactive' => 0
 						]
 					],
