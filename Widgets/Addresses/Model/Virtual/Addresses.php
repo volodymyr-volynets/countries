@@ -27,7 +27,7 @@ class Addresses extends \Object\Table {
 	public $cache_tags = [];
 	public $cache_memory = false;
 
-	public $attributes = false; // todo
+	public $attributes = true;
 	public $details_pk = ['wg_address_type_code'];
 
 	/**
@@ -184,10 +184,10 @@ class Addresses extends \Object\Table {
 				'type' => 'subdetails',
 				'label_name' => 'Attributes',
 				'details_rendering_type' => 'table',
-				'details_new_rows' => 5,
+				'details_new_rows' => 1,
 				'details_parent_key' => $this->virtual_class_name,
 				'details_key' => $this->attributes_model,
-				'details_pk' => ['wg_attribute_attrattr_id'],
+				'details_pk' => ['wg_attribute_attribute_id'],
 				'order' => PHP_INT_MAX - 1000,
 				'required' => false
 			]);

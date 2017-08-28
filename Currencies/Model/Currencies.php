@@ -49,6 +49,10 @@ class Currencies extends \Object\Table {
 		'scope' => 'enterprise'
 	];
 
+	public $relation = [
+		'field' => 'cy_currency_code',
+	];
+
 	/**
 	 * Options for format
 	 *
