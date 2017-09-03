@@ -295,8 +295,8 @@ class System extends \Object\Import {
 					]
 				],
 				[
-					'sm_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Tasks\OnlineRates',
-					'sm_resource_code' => '\Numbers\Countries\Currencies\Controller\Tasks\OnlineRates',
+					'sm_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Task\OnlineRates',
+					'sm_resource_code' => '\Numbers\Countries\Currencies\Controller\Task\OnlineRates',
 					'sm_resource_type' => 100,
 					'sm_resource_classification' => 'Tasks',
 					'sm_resource_name' => 'C/Y Online Rates (Task)',
@@ -511,8 +511,8 @@ class System extends \Object\Import {
 					'sm_resource_inactive' => 0
 				],
 				[
-					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Currencies\Controller\Tasks\OnlineRates',
-					'sm_resource_code' => '\Menu\Numbers\Countries\Currencies\Controller\Tasks\OnlineRates',
+					'sm_resource_id' => '::id::\Menu\Numbers\Countries\Currencies\Controller\Task\OnlineRates',
+					'sm_resource_code' => '\Menu\Numbers\Countries\Currencies\Controller\Task\OnlineRates',
 					'sm_resource_type' => 200,
 					'sm_resource_name' => 'Online Rates (Task)',
 					'sm_resource_description' => null,
@@ -530,10 +530,10 @@ class System extends \Object\Import {
 					'sm_resource_acl_public' => 0,
 					'sm_resource_acl_authorized' => 0,
 					'sm_resource_acl_permission' => 1,
-					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Tasks\OnlineRates',
+					'sm_resource_menu_acl_resource_id' => '::id::\Numbers\Countries\Currencies\Controller\Task\OnlineRates',
 					'sm_resource_menu_acl_method_code' => 'Edit',
 					'sm_resource_menu_acl_action_id' => '::id::Record_View',
-					'sm_resource_menu_url' => '/Numbers/Countries/Currencies/Controller/Tasks/OnlineRates/_Edit',
+					'sm_resource_menu_url' => '/Numbers/Countries/Currencies/Controller/Task/OnlineRates/_Edit',
 					'sm_resource_menu_options_generator' => null,
 					'sm_resource_inactive' => 0
 				]

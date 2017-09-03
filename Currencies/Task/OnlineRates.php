@@ -1,6 +1,6 @@
 <?php
 
-namespace Numbers\Countries\Currencies\Tasks;
+namespace Numbers\Countries\Currencies\Task;
 class OnlineRates extends \Numbers\Users\TaskScheduler\Abstract2\Task {
 
 	public $task_code = 'CY_TASK_ONLINE_RATES';
@@ -36,20 +36,18 @@ class OnlineRates extends \Numbers\Users\TaskScheduler\Abstract2\Task {
 			'cy_currrate_home_currency_code' => $parameters['home_currency_code'],
 			'cy_currrate_rate' => $temp_result['rate'],
 			'cy_currrate_provider_name' => $data['cy_provider_name'],
-			'\Numbers\Countries\Currencies\Model\Rate\Organizations' => [$parameters['organization_1']],
-			'__submit_save' => true
+			'\Numbers\Countries\Currencies\Model\Rate\Organizations' => [
+				$parameters['organization_1'] => $parameters['organization_1']
+			]
 		];
 		if (!empty($parameters['organization_2'])) {
-			$import_data['\Numbers\Countries\Currencies\Model\Rate\Organizations'][] = $parameters['organization_2'];
+			$import_data['\Numbers\Countries\Currencies\Model\Rate\Organizations'][$parameters['organization_2']] = $parameters['organization_2'];
 		}
 		if (!empty($parameters['organization_3'])) {
-			$import_data['\Numbers\Countries\Currencies\Model\Rate\Organizations'][] = $parameters['organization_3'];
+			$import_data['\Numbers\Countries\Currencies\Model\Rate\Organizations'][$parameters['organization_3']] = $parameters['organization_3'];
 		}
-		$form_object = new \Numbers\Countries\Currencies\Form\Rates([
-			'input' => $import_data,
-			'skip_acl' => true
-		]);
-		$form_result = $form_object->apiResult();
+		$api = \Numbers\Countries\Currencies\Form\Rates::API();
+		$form_result = $api->save($import_data);
 		if (!$form_result['success']) {
 			$result['error'] = array_merge($result['error'], $form_result['error']);
 		} else {

@@ -1,7 +1,7 @@
 <?php
 
 namespace Numbers\Countries\Currencies\Model;
-class Rates extends \Object\Table {
+class Rates2 extends \Numbers\Countries\Currencies\Model\Rates {
 	public $pk = ['cy_currrate_currency_type', 'cy_currrate_source_currency_code', 'cy_currrate_home_currency_code', 'cy_currrate_id'];
 	public $limit = 10;
 	public $options_map;

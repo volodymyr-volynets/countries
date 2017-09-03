@@ -85,7 +85,7 @@ class Import extends \Object\Import {
 				[
 					'ts_task_code' => 'CY_TASK_ONLINE_RATES',
 					'ts_task_name' => 'C/Y Task Online Rates',
-					'ts_task_model' => '\Numbers\Countries\Currencies\Tasks\OnlineRates',
+					'ts_task_model' => '\Numbers\Countries\Currencies\Task\OnlineRates',
 					'ts_task_inactive' => 0,
 					'\Numbers\Users\TaskScheduler\Model\TaskParameters' => [
 						[

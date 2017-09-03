@@ -1,6 +1,6 @@
 <?php
 
-namespace Numbers\Countries\Currencies\Form\Tasks;
+namespace Numbers\Countries\Currencies\Form\Task;
 class OnlineRates extends \Object\Form\Wrapper\Base {
 	public $form_link = 'tasks_online_rates';
 	public $options = [
@@ -36,7 +36,7 @@ class OnlineRates extends \Object\Form\Wrapper\Base {
 		],
 		'buttons' => [
 			self::BUTTONS => [
-				self::BUTTON_SUBMIT => self::BUTTON_SUBMIT_DATA,
+				self::BUTTON_SUBMIT_SAVE => self::BUTTON_SUBMIT_DATA,
 				self::BUTTON_SUBMIT_POST => ['order' => 150, 'button_group' => 'left', 'value' => 'Create Job', 'type' => 'danger', 'method' => 'button2', 'accesskey' => 'p', 'process_submit' => 'other']
 			]
 		]
@@ -48,7 +48,7 @@ class OnlineRates extends \Object\Form\Wrapper\Base {
 		if (!empty($form->values['__submit_post'])) {
 			\Numbers\Users\TaskScheduler\Helper\CreateJob::create('CY_TASK_ONLINE_RATES', $form);
 		}
-		$model = new \Numbers\Countries\Currencies\Tasks\OnlineRates($form->values);
+		$model = new \Numbers\Countries\Currencies\Task\OnlineRates($form->values);
 		$result = $model->process();
 		if ($result['success']) {
 			$form->error(SUCCESS, \Object\Content\Messages::OPERATION_EXECUTED);
