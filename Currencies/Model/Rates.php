@@ -56,7 +56,7 @@ class Rates extends \Object\Table {
 	];
 	public $preset_active = [];
 	public $engine = [
-		'mysqli' => 'InnoDB'
+		'MySQLi' => 'InnoDB'
 	];
 
 	public $cache = true;

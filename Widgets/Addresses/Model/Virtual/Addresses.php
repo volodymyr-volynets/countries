@@ -20,7 +20,7 @@ class Addresses extends \Object\Table {
 	public $options_map = [];
 	public $options_active = [];
 	public $engine = [
-		'mysqli' => 'InnoDB'
+		'MySQLi' => 'InnoDB'
 	];
 
 	public $cache = false;
@@ -62,12 +62,7 @@ class Addresses extends \Object\Table {
 			'type' => 'fk',
 			'columns' => array_values($this->map),
 			'foreign_model' => $class,
-			'foreign_columns' => array_keys($this->map),
-			'options' => [
-				'match' => 'simple',
-				'update' => 'no action',
-				'delete' => 'no action'
-			]
+			'foreign_columns' => array_keys($this->map)
 		];
 		$this->constraints[$this->name . '_type_code_fk'] = [
 			'type' => 'fk',
