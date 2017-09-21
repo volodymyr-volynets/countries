@@ -133,6 +133,7 @@ class Import extends \Object\Import {
 				],
 			]
 		],
+		/*
 		'address_types' => [
 			'options' => [
 				'pk' => ['cm_addrtype_code'],
@@ -166,5 +167,6 @@ class Import extends \Object\Import {
 				]
 			]
 		],
+		*/
 	];
 }
