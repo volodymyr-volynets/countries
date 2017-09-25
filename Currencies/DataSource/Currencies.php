@@ -10,7 +10,11 @@ class Currencies extends \Object\DataSource {
 	public $limit;
 	public $single_row;
 	public $single_value;
-	public $options_map = [];
+	public $options_map = [
+		'code' => 'name',
+		'name' => 'name',
+		'inactive' => 'inactive'
+	];
 	public $options_active = [];
 	public $column_prefix;
 

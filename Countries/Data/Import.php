@@ -131,42 +131,23 @@ class Import extends \Object\Import {
 						]
 					]
 				],
-			]
-		],
-		/*
-		'address_types' => [
-			'options' => [
-				'pk' => ['cm_addrtype_code'],
-				'model' => '\Numbers\Countries\Countries\Model\Address\Types',
-				'method' => 'save_insert_new'
-			],
-			'data' => [
 				[
-					'cm_addrtype_code' => 'HOME',
-					'cm_addrtype_name' => 'Home Address',
-					'cm_addrtype_global' => 1,
-					'cm_addrtype_inactive' => 0
-				],
-				[
-					'cm_addrtype_code' => 'BUSINESS',
-					'cm_addrtype_name' => 'Business Address',
-					'cm_addrtype_global' => 1,
-					'cm_addrtype_inactive' => 0
-				],
-				[
-					'cm_addrtype_code' => 'BILLING',
-					'cm_addrtype_name' => 'Billing Address',
-					'cm_addrtype_global' => 1,
-					'cm_addrtype_inactive' => 0
-				],
-				[
-					'cm_addrtype_code' => 'SHIPPING',
-					'cm_addrtype_name' => 'Shipping Address',
-					'cm_addrtype_global' => 1,
-					'cm_addrtype_inactive' => 0
+					'sm_feature_module_code' => 'CM',
+					'sm_feature_code' => 'CM::DATA_ADDRESS_TYPES',
+					'sm_feature_type' => 30,
+					'sm_feature_name' => 'C/M Common Address Types',
+					'sm_feature_icon' => 'database',
+					'sm_feature_activation_model' => '\Numbers\Countries\Countries\Data\Features\AddressTypes\AddressTypes',
+					'sm_feature_activated_by_default' => 0,
+					'sm_feature_inactive' => 0,
+					'\Numbers\Backend\System\Modules\Model\Module\Dependencies' => [
+						[
+							'sm_mdldep_child_module_code' => 'CM',
+							'sm_mdldep_child_feature_code' => 'CM::COUNTRIES'
+						]
+					]
 				]
 			]
-		],
-		*/
+		]
 	];
 }

@@ -17,7 +17,7 @@ class Currencies extends \Object\Table {
 		'cy_currency_code' => ['name' => 'Currency Code', 'domain' => 'currency_code'],
 		'cy_currency_name' => ['name' => 'Name', 'domain' => 'name'],
 		'cy_currency_symbol' => ['name' => 'Symbol', 'domain' => 'name'],
-		'cy_currency_fraction_digits' => ['name' => 'Fraction Digits', 'domain' => 'fraction_digits'],
+		'cy_currency_fraction_digits' => ['name' => 'Fraction Digits', 'domain' => 'fraction_digits', 'options_model' => '\Numbers\Countries\Currencies\Model\Fractions'],
 		'cy_currency_inactive' => ['name' => 'Inactive', 'type' => 'boolean']
 	];
 	public $constraints = [

@@ -52,8 +52,9 @@ class Currencies extends \Object\Form\Wrapper\List2 {
 		self::LIST_CONTAINER => [
 			'row1' => [
 				'cy_currency_code' => ['order' => 1, 'row_order' => 100, 'label_name' => 'Currency Code', 'domain' => 'currency_code', 'percent' => 10, 'url_edit' => true],
-				'cy_currency_name' => ['order' => 2, 'label_name' => 'Name', 'domain' => 'name', 'percent' => 85],
-				'cy_currency_inactive' => ['order' => 3, 'label_name' => 'Inactive', 'type' => 'boolean', 'percent' => 5]
+				'cy_currency_name' => ['order' => 2, 'label_name' => 'Name', 'domain' => 'name', 'percent' => 65],
+				'cy_currency_fraction_digits' => ['order' => 3, 'label_name' => 'Fraction Digits', 'domain' => 'fraction_digits', 'percent' => 20, 'options_model' => '\Numbers\Countries\Currencies\Model\Fractions'],
+				'cy_currency_inactive' => ['order' => 4, 'label_name' => 'Inactive', 'type' => 'boolean', 'percent' => 5]
 			]
 		]
 	];
