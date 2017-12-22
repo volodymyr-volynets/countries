@@ -2,7 +2,9 @@
 
 namespace Numbers\Countries\Countries\Form\List2;
 class PostalCodes extends \Object\Form\Wrapper\List2 {
-	public $form_link = 'postal_codes_list';
+	public $form_link = 'cm_postal_codes_list';
+	public $module_code = 'CM';
+	public $title = 'C/M Postal Codes List';
 	public $options = [
 		'segment' => self::SEGMENT_LIST,
 		'actions' => [

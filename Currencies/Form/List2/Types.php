@@ -2,7 +2,9 @@
 
 namespace Numbers\Countries\Currencies\Form\List2;
 class Types extends \Object\Form\Wrapper\List2 {
-	public $form_link = 'currency_types_list';
+	public $form_link = 'cy_currency_types_list';
+	public $module_code = 'CY';
+	public $title = 'C/M Currency Types List';
 	public $options = [
 		'segment' => self::SEGMENT_LIST,
 		'actions' => [

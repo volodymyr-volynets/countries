@@ -2,7 +2,9 @@
 
 namespace Numbers\Countries\Countries\Form;
 class Provinces extends \Object\Form\Wrapper\Base {
-	public $form_link = 'provinces';
+	public $form_link = 'cm_provinces';
+	public $module_code = 'CM';
+	public $title = 'C/M Provinces Form';
 	public $options = [
 		'segment' => self::SEGMENT_FORM,
 		'actions' => [

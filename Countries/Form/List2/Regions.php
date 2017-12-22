@@ -2,7 +2,9 @@
 
 namespace Numbers\Countries\Countries\Form\List2;
 class Regions extends \Object\Form\Wrapper\List2 {
-	public $form_link = 'regions_list';
+	public $form_link = 'cm_regions_list';
+	public $module_code = 'CM';
+	public $title = 'C/M Regions List';
 	public $options = [
 		'segment' => self::SEGMENT_LIST,
 		'actions' => [

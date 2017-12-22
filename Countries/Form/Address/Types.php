@@ -2,7 +2,9 @@
 
 namespace Numbers\Countries\Countries\Form\Address;
 class Types extends \Object\Form\Wrapper\Base {
-	public $form_link = 'address_types';
+	public $form_link = 'cm_address_types';
+	public $module_code = 'CM';
+	public $title = 'C/M Address Types Form';
 	public $options = [
 		'segment' => self::SEGMENT_FORM,
 		'actions' => [
