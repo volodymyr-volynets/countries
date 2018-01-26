@@ -2,7 +2,9 @@
 
 namespace Numbers\Countries\Currencies\Form\Task;
 class OnlineRates extends \Object\Form\Wrapper\Base {
-	public $form_link = 'tasks_online_rates';
+	public $form_link = 'cy_tasks_online_rates';
+	public $module_code = 'CY';
+	public $title = 'C/Y Online Rates Task';
 	public $options = [
 		'segment' => self::SEGMENT_TASK,
 		'actions' => [

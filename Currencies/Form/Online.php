@@ -4,7 +4,7 @@ namespace Numbers\Countries\Currencies\Form;
 class Online extends \Object\Form\Wrapper\Base {
 	public $form_link = 'cy_online_rates';
 	public $module_code = 'CY';
-	public $title = 'C/M Online Rates Form';
+	public $title = 'C/Y Online Rates Form';
 	public $options = [
 		'segment' => self::SEGMENT_FORM,
 		'actions' => [

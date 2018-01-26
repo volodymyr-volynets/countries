@@ -4,7 +4,7 @@ namespace Numbers\Countries\Currencies\Form\List2;
 class Rates extends \Object\Form\Wrapper\List2 {
 	public $form_link = 'cy_currency_rates_list';
 	public $module_code = 'CY';
-	public $title = 'C/M Currency Rates List';
+	public $title = 'C/Y Currency Rates List';
 	public $options = [
 		'segment' => self::SEGMENT_LIST,
 		'actions' => [
