@@ -32,11 +32,9 @@ class Addresses extends \Object\Table {
 
 	/**
 	 * Constructor
-	 *
-	 * @param string $class
 	 */
-	public function __construct($class, $virtual_class_name) {
-		$this->determineModelMap($class, 'addresses', $virtual_class_name);
+	public function __construct($class, $virtual_class_name, $options = []) {
+		$this->determineModelMap($class, 'addresses', $virtual_class_name, $options);
 		// add regular columns
 		$this->columns['wg_address_tenant_id'] = ['name' => 'Tenant #', 'domain' => 'tenant_id'];
 		$this->columns['wg_address_id'] = ['name' => 'Detail #', 'domain' => 'big_id_sequence'];
@@ -84,7 +82,7 @@ class Addresses extends \Object\Table {
 		];
 		$this->indexes[$this->name . '_parent_idx'] = ['type' => 'btree', 'columns' => array_values($this->map)];
 		// construct table
-		parent::__construct();
+		parent::__construct($options);
 		// we need to fix attribute model
 		if (!empty($this->attributes)) {
 			$this->attributes = [
