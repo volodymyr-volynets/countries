@@ -29,7 +29,7 @@ class Types extends \Object\Form\Wrapper\Base {
 				'cy_currtype_name' => ['order' => 1, 'row_order' => 200, 'label_name' => 'Name', 'domain' => 'name', 'percent' => 100, 'required' => true],
 			],
 			'organizations' => [
-				'\Numbers\Countries\Currencies\Model\Type\Organizations' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cy_curtypeorg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'options_model' => '\Numbers\Users\Organizations\DataSource\Organizations::optionsActive'],
+				'\Numbers\Countries\Currencies\Model\Type\Organizations' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cy_curtypeorg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive', 'options_params' => ['on_organization_subtype_id' => 10]],
 			]
 		],
 		'buttons' => [

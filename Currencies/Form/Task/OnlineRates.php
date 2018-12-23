@@ -27,13 +27,13 @@ class OnlineRates extends \Object\Form\Wrapper\Base {
 				'home_currency_code' => ['order' => 2, 'label_name' => 'Home Currency', 'domain' => 'currency_code', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Currencies', 'onchange' => 'this.form.submit();'],
 			],
 			'organization_1' => [
-				'organization_1' => ['order' => 1, 'row_order' => 300, 'label_name' => 'Organization 1', 'domain' => 'organization_id', 'null' => true, 'percent' => 100, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Users\Organizations\DataSource\Organizations::optionsActive']
+				'organization_1' => ['order' => 1, 'row_order' => 300, 'label_name' => 'Organization 1', 'domain' => 'organization_id', 'null' => true, 'percent' => 100, 'required' => true, 'method' => 'select', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive', 'options_params' => ['on_organization_subtype_id' => 10]]
 			],
 			'organization_2' => [
-				'organization_2' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organization 2', 'domain' => 'organization_id', 'null' => true, 'percent' => 100, 'required' => false, 'method' => 'select', 'options_model' => '\Numbers\Users\Organizations\DataSource\Organizations::optionsActive']
+				'organization_2' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organization 2', 'domain' => 'organization_id', 'null' => true, 'percent' => 100, 'required' => false, 'method' => 'select', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive', 'options_params' => ['on_organization_subtype_id' => 10]]
 			],
 			'organization_3' => [
-				'organization_3' => ['order' => 1, 'row_order' => 500, 'label_name' => 'Organization 3', 'domain' => 'organization_id', 'null' => true, 'percent' => 100, 'required' => false, 'method' => 'select', 'options_model' => '\Numbers\Users\Organizations\DataSource\Organizations::optionsActive']
+				'organization_3' => ['order' => 1, 'row_order' => 500, 'label_name' => 'Organization 3', 'domain' => 'organization_id', 'null' => true, 'percent' => 100, 'required' => false, 'method' => 'select', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive', 'options_params' => ['on_organization_subtype_id' => 10]]
 			]
 		],
 		'buttons' => [

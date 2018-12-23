@@ -33,7 +33,7 @@ class Currencies extends \Object\Form\Wrapper\Base {
 				'cy_currency_fraction_digits' => ['order' => 2, 'label_name' => 'Fraction Digits', 'domain' => 'fraction_digits', 'method' => 'select', 'no_choose' => true, 'options_model' => '\Numbers\Countries\Currencies\Model\Fractions'],
 			],
 			'organizations' => [
-				'\Numbers\Countries\Currencies\Model\Currency\Organizations' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cy_currorg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'options_model' => '\Numbers\Users\Organizations\DataSource\Organizations::optionsActive'],
+				'\Numbers\Countries\Currencies\Model\Currency\Organizations' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cy_currorg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive', 'options_params' => ['on_organization_subtype_id' => 10]],
 			]
 		],
 		'buttons' => [
