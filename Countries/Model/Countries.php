@@ -44,8 +44,13 @@ class Countries extends \Object\Table {
 	];
 	public $history = false;
 	public $audit = false;
-	public $options_map = [];
-	public $options_active = [];
+	public $options_map = [
+		'cm_country_name' => 'name',
+		'cm_country_code' => 'flag_country_code'
+	];
+	public $options_active = [
+		'cm_country_inactive' => 0
+	];
 	public $engine = [
 		'MySQLi' => 'InnoDB'
 	];
