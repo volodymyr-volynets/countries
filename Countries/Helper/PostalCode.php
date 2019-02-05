@@ -43,7 +43,7 @@ class PostalCode {
 			$result['longitude'] = $data['cm_postal_longitude'];
 			$result['formatted_address'] = concat_ws(', ', $data['cm_postal_city'], $data['cm_postal_province_code'], $data['cm_postal_country_code'], $data['cm_postal_postal_code']);
 		} else {
-			$result['error'][] = 'Country/postal code not found!';
+			$result['error'][] = \Numbers\Countries\Countries\Helper\Messages::COUNTRY_POSTAL_CODE_NOT_FOUND;
 		}
 		self::$cached_postal_codes[$postal_code] = $result;
 		return $result;

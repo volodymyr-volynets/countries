@@ -158,7 +158,7 @@ class Addresses extends \Object\Table {
 			],
 			'row7' => [
 				'wg_address_latitude' => ['order' => 1, 'row_order' => 700, 'label_name' => 'Latitude', 'domain' => 'geo_coordinate', 'null' => true, 'required' => 'c'],
-				'wg_address_longitude' => ['order' => 2, 'label_name' => 'Longitude', 'domain' => 'geo_coordinate', 'null' => true, , 'required' => 'c'],
+				'wg_address_longitude' => ['order' => 2, 'label_name' => 'Longitude', 'domain' => 'geo_coordinate', 'null' => true, 'required' => 'c'],
 			]
 		];
 		// add elements to the form
@@ -184,6 +184,8 @@ class Addresses extends \Object\Table {
 			'addresses' => true
 		]);
 		$form->updateCollectionObject();
+		// validate
+		$form->wrapper_methods['validate']['addresses_widget'] = [$this, 'validate'];
 		// attributes
 		if ($this->attributes) {
 			$form->container($new_container_link . '__attributes', [
@@ -200,5 +202,18 @@ class Addresses extends \Object\Table {
 			]);
 		}
 		return true;
+	}
+
+	public function validate(& $form) {
+		// we need to decode
+		foreach ($form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'] as $k => $v) {
+			if (empty($v['wg_address_latitude']) && empty($v['wg_address_longitude'])) {
+				$temp = \Numbers\Countries\Countries\Helper\PostalCode::decodePostalCode($v['wg_address_country_code'], $v['wg_address_postal_code']);
+				if ($temp['success']) {
+					$form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'][$k]['wg_address_latitude'] = $temp['latitude'];
+					$form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'][$k]['wg_address_longitude'] = $temp['longitude'];
+				}
+			}
+		}
 	}
 }

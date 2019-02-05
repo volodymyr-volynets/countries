@@ -43,7 +43,7 @@ class Google {
 			$result['formatted_address'] = $temp['data']['results'][0]['formatted_address'];
 			$result['success'] = true;
 		} else {
-			$result['error'][] = 'Unknown error occurd!';
+			$result['error'][] = \Numbers\Countries\Countries\Helper\Messages::UNKNOWN_ERROR;
 		}
 		self::$cached_addresses[$address] = $result;
 		return $result;
