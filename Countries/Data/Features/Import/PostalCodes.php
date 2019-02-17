@@ -34,6 +34,7 @@ class PostalCodes extends \Object\Import {
 		$data = \Numbers\Backend\IO\CSV\Imports::read(__DIR__ . '/postal_codes_' . strtolower($this->options['cm_postal_country_code']) . '.csv');
 		unset($data['data']['Main Sheet'][0]);
 		$rows = [];
+		$lock = [];
 		foreach ($data['data']['Main Sheet'] as $k => $v) {
 			$postal_code = $v[2] . '';
 			if ($this->options['cm_postal_country_code'] == 'US') {
@@ -41,6 +42,12 @@ class PostalCodes extends \Object\Import {
 			}
 			// we do not import existing postal codes
 			if (isset($existing_postal_codes['rows'][$postal_code])) continue;
+			// we only import first postal code
+			if (isset($lock[$postal_code])) {
+				continue;
+			} else {
+				$lock[$postal_code] = true;
+			}
 			$rows[$postal_code] = [
 				'cm_postal_tenant_id' => \Tenant::id(),
 				'cm_postal_country_code' => $v[0],

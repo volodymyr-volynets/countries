@@ -40,9 +40,9 @@ class Addresses extends \Object\Table {
 		$this->columns['wg_address_id'] = ['name' => 'Detail #', 'domain' => 'big_id_sequence'];
 		$this->columns['wg_address_type_code'] = ['name' => 'Type', 'domain' => 'type_code'];
 		$this->columns['wg_address_name'] = ['name' => 'Name', 'domain' => 'name', 'null' => true];
-		$this->columns['wg_address_address1'] = ['name' => 'Address Line 1', 'domain' => 'name', 'null' => true];
-		$this->columns['wg_address_address2'] = ['name' => 'Address Line 2', 'domain' => 'name', 'null' => true];
-		$this->columns['wg_address_city'] = ['name' => 'City', 'domain' => 'name', 'null' => true];
+		$this->columns['wg_address_address1'] = ['name' => 'Address Line 1', 'domain' => 'address', 'null' => true];
+		$this->columns['wg_address_address2'] = ['name' => 'Address Line 2', 'domain' => 'address', 'null' => true];
+		$this->columns['wg_address_city'] = ['name' => 'City', 'domain' => 'city', 'null' => true];
 		$this->columns['wg_address_province_code'] = ['name' => 'Province', 'domain' => 'province_code', 'null' => true];
 		$this->columns['wg_address_country_code'] = ['name' => 'Country', 'domain' => 'country_code', 'null' => true];
 		$this->columns['wg_address_postal_code'] = ['name' => 'Postal Code', 'domain' => 'postal_code', 'null' => true];
@@ -137,11 +137,11 @@ class Addresses extends \Object\Table {
 				'wg_address_inactive' => ['order' => 4, 'label_name' => 'Inactive', 'type' => 'boolean', 'percent' => 5]
 			],
 			'row2' => [
-				'wg_address_address1' => ['order' => 1, 'row_order' => 200, 'label_name' => 'Address Line 1', 'domain' => 'name', 'null' => true, 'percent' => 50, 'required' => true],
-				'wg_address_address2' => ['order' => 2, 'label_name' => 'Address Line 2', 'domain' => 'name', 'null' => true, 'percent' => 50]
+				'wg_address_address1' => ['order' => 1, 'row_order' => 200, 'label_name' => 'Address Line 1', 'domain' => 'address', 'null' => true, 'percent' => 50, 'required' => true],
+				'wg_address_address2' => ['order' => 2, 'label_name' => 'Address Line 2', 'domain' => 'address', 'null' => true, 'percent' => 50]
 			],
 			'row3' => [
-				'wg_address_city' => ['order' => 1, 'row_order' => 300, 'label_name' => 'City', 'domain' => 'name', 'null' => true, 'percent' => 50],
+				'wg_address_city' => ['order' => 1, 'row_order' => 300, 'label_name' => 'City', 'domain' => 'city', 'null' => true, 'percent' => 50],
 				'wg_address_postal_code' => ['order' => 2, 'label_name' => 'Postal Code', 'domain' => 'postal_code', 'null' => true, 'percent' => 25],
 				'__decode' => ['order' => 3, 'label_name' => ' ', 'method' => 'button2', 'value' => 'Decode', 'icon' => 'far fa-handshake', 'onclick' => 'numbers_widgets_addresses_decode_postal_code(this); return false;']
 			],
@@ -206,12 +206,14 @@ class Addresses extends \Object\Table {
 
 	public function validate(& $form) {
 		// we need to decode
-		foreach ($form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'] as $k => $v) {
-			if (empty($v['wg_address_latitude']) && empty($v['wg_address_longitude'])) {
-				$temp = \Numbers\Countries\Countries\Helper\PostalCode::decodePostalCode($v['wg_address_country_code'], $v['wg_address_postal_code']);
-				if ($temp['success']) {
-					$form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'][$k]['wg_address_latitude'] = $temp['latitude'];
-					$form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'][$k]['wg_address_longitude'] = $temp['longitude'];
+		if (isset($form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'])) {
+			foreach ($form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'] as $k => $v) {
+				if (empty($v['wg_address_latitude']) && empty($v['wg_address_longitude'])) {
+					$temp = \Numbers\Countries\Countries\Helper\PostalCode::decodePostalCode($v['wg_address_country_code'], $v['wg_address_postal_code']);
+					if ($temp['success']) {
+						$form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'][$k]['wg_address_latitude'] = $temp['latitude'];
+						$form->values['\Numbers\Users\Users\Model\Users\0Virtual0\Widgets\Addresses'][$k]['wg_address_longitude'] = $temp['longitude'];
+					}
 				}
 			}
 		}

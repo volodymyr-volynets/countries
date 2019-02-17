@@ -133,6 +133,38 @@ class Import extends \Object\Import {
 				],
 				[
 					'sm_feature_module_code' => 'CM',
+					'sm_feature_code' => 'CM::DATA_MX_POSTAL',
+					'sm_feature_type' => 30,
+					'sm_feature_name' => 'C/M Mexican Postal Codes',
+					'sm_feature_icon' => 'fas fa-database',
+					'sm_feature_activation_model' => '\Numbers\Countries\Countries\Data\Features\PostalCodes\Mexico',
+					'sm_feature_activated_by_default' => 0,
+					'sm_feature_inactive' => 0,
+					'\Numbers\Backend\System\Modules\Model\Module\Dependencies' => [
+						[
+							'sm_mdldep_child_module_code' => 'CM',
+							'sm_mdldep_child_feature_code' => 'CM::COUNTRIES'
+						],
+					]
+				],
+				[
+					'sm_feature_module_code' => 'CM',
+					'sm_feature_code' => 'CM::DATA_BR_POSTAL',
+					'sm_feature_type' => 30,
+					'sm_feature_name' => 'C/M Brazil Postal Codes',
+					'sm_feature_icon' => 'fas fa-database',
+					'sm_feature_activation_model' => '\Numbers\Countries\Countries\Data\Features\PostalCodes\Brazil',
+					'sm_feature_activated_by_default' => 0,
+					'sm_feature_inactive' => 0,
+					'\Numbers\Backend\System\Modules\Model\Module\Dependencies' => [
+						[
+							'sm_mdldep_child_module_code' => 'CM',
+							'sm_mdldep_child_feature_code' => 'CM::COUNTRIES'
+						],
+					]
+				],
+				[
+					'sm_feature_module_code' => 'CM',
 					'sm_feature_code' => 'CM::DATA_ADDRESS_TYPES',
 					'sm_feature_type' => 30,
 					'sm_feature_name' => 'C/M Common Address Types',
