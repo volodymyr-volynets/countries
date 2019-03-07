@@ -36,7 +36,7 @@ class Rates extends \Object\Form\Wrapper\Base {
 				'cy_currrate_rate' => ['order' => 3, 'label_name' => 'Rate', 'domain' => 'currency_rate', 'percent' => 34, 'required' => true],
 			],
 			'organizations' => [
-				'\Numbers\Countries\Currencies\Model\Rate\Organizations' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cy_curateorg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive', 'options_params' => ['on_organization_subtype_id' => 10]],
+				'\Numbers\Countries\Currencies\Model\Rate\Organizations' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cy_curateorg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive'],
 			]
 		],
 		'buttons' => [

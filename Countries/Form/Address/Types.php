@@ -30,7 +30,7 @@ class Types extends \Object\Form\Wrapper\Base {
 				'cm_addrtype_global' => ['order' => 2, 'label_name' => 'Global', 'type' => 'boolean', 'percent' => 5]
 			],
 			'organizations' => [
-				'\Numbers\Countries\Countries\Model\Address\Type\Organizations' => ['order' => 1, 'row_order' => 300, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cm_addrtporg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive', 'options_params' => ['on_organization_subtype_id' => 10]],
+				'\Numbers\Countries\Countries\Model\Address\Type\Organizations' => ['order' => 1, 'row_order' => 300, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cm_addrtporg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive'],
 			]
 		],
 		'buttons' => [
