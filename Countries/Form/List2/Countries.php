@@ -58,7 +58,7 @@ class Countries extends \Object\Form\Wrapper\List2 {
 				'cm_country_inactive' => ['order' => 3, 'label_name' => 'Inactive', 'type' => 'boolean', 'percent' => 5]
 			],
 			'row2' => [
-				'blank' => ['order' => 1, 'row_order' => 200, 'label_name' => ' ', 'percent' => 10],
+				'blank' => ['order' => 1, 'row_order' => 200, 'label_name' => '', 'percent' => 10],
 				'cm_country_region_id' => ['order' => 2, 'label_name' => 'Region', 'domain' => 'country_number', 'null' => true, 'percent' => 45, 'options_model' => '\Numbers\Countries\Countries\Model\Regions'],
 				'cm_country_sub_region_id' => ['order' => 3, 'label_name' => 'Sub Region', 'domain' => 'country_number', 'null' => true, 'percent' => 45, 'options_model' => '\Numbers\Countries\Countries\Model\Regions'],
 			]
