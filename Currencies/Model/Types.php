@@ -29,7 +29,8 @@ class Types extends \Object\Table {
 	public $optimistic_lock = true;
 	public $options_map = [
 		'cy_currtype_code' => 'name',
-		'cy_currtype_name' => 'name'
+		'cy_currtype_name' => 'name',
+		'cy_currtype_inactive' => 'inactive'
 	];
 	public $options_active = [];
 	public $engine = [

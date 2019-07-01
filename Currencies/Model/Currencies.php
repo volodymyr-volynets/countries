@@ -32,7 +32,8 @@ class Currencies extends \Object\Table {
 	public $options_map = [
 		'cy_currency_code' => 'name',
 		'cy_currency_name' => 'name',
-		'cy_currency_fraction_digits' => 'cy_currency_fraction_digits'
+		'cy_currency_fraction_digits' => 'cy_currency_fraction_digits',
+		'cy_currency_inactive' => 'inactive',
 	];
 	public $options_active = [];
 	public $engine = [

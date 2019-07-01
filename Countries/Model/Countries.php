@@ -46,7 +46,8 @@ class Countries extends \Object\Table {
 	public $audit = false;
 	public $options_map = [
 		'cm_country_name' => 'name',
-		'cm_country_code' => 'flag_country_code'
+		'cm_country_code' => 'flag_country_code',
+		'cm_country_inactive' => 'inactive'
 	];
 	public $options_active = [
 		'cm_country_inactive' => 0

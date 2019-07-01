@@ -35,6 +35,7 @@ class Provinces extends \Object\Table {
 	public $audit = false;
 	public $options_map = [
 		'cm_province_name' => 'name',
+		'cm_province_inactive' => 'inactive',
 	];
 	public $options_active = [];
 	public $engine = [
