@@ -5,6 +5,8 @@ class PostgreSQL extends \Object\Function2 {
 	public $db_link;
 	public $db_link_flag;
 	public $schema;
+	public $module_code = 'CM';
+	public $title = 'C/M Distance Calculator (PostgreSQL)';
 	public $name = 'cm_calculate_distance_in_units';
 	public $backend = 'PostgreSQL';
 	public $header = 'cm_calculate_distance_in_units(a_lat numeric, a_lon numeric, b_lat numeric, b_lon numeric, miles int)';
