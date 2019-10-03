@@ -56,17 +56,19 @@ class Rates extends \Object\Form\Wrapper\List2 {
 		self::LIST_CONTAINER => [
 			'row1' => [
 				'cy_currrate_id' => ['order' => 1, 'row_order' => 100, 'label_name' => 'Rate #', 'domain' => 'currency_rate_id_sequence', 'percent' => 15, 'url_edit' => true],
-				'cy_currrate_datetime' => ['order' => 2, 'label_name' => 'Datetime', 'type' => 'datetime', 'percent' => 15],
-				'cy_currrate_currency_type' => ['order' => 3, 'label_name' => 'Type', 'domain' => 'currency_type', 'null' => false, 'percent' => 65, 'options_model' => '\Numbers\Countries\Currencies\Model\Types'],
+				'cy_currrate_datetime' => ['order' => 2, 'label_name' => 'Datetime', 'type' => 'datetime', 'percent' => 25],
+				'cy_currrate_currency_type' => ['order' => 3, 'label_name' => 'Type', 'domain' => 'currency_type', 'null' => false, 'percent' => 55, 'options_model' => '\Numbers\Countries\Currencies\Model\Types'],
 				'cy_currrate_inactive' => ['order' => 4, 'label_name' => 'Inactive', 'type' => 'boolean', 'percent' => 5]
 			],
 			'row2' => [
 				'blank' => ['order' => 1, 'row_order' => 200, 'label_name' => ' ', 'percent' => 15],
-				'cy_currrate_source_currency_code' => ['order' => 2, 'label_name' => 'Source Currency', 'domain' => 'currency_code', 'percent' => 15],
-				'cy_currrate_home_currency_code' => ['order' => 3, 'label_name' => 'Home Currency', 'domain' => 'currency_code', 'percent' => 15],
-				'cy_currrate_rate' => ['order' => 4, 'label_name' => 'Rate', 'domain' => 'currency_rate', 'percent' => 10],
-				'blank2' => ['order' => 5, 'label_name' => ' ', 'percent' => 5],
-				'cy_currrate_provider_name' => ['order' => 6, 'label_name' => 'Provider Name', 'domain' => 'name', 'null' => true, 'percent' => 45],
+				'cy_currrate_source_currency_code' => ['order' => 2, 'label_name' => 'Source Currency', 'domain' => 'currency_code', 'percent' => 25],
+				'cy_currrate_home_currency_code' => ['order' => 3, 'label_name' => 'Home Currency', 'domain' => 'currency_code', 'percent' => 25],
+				'cy_currrate_rate' => ['order' => 4, 'label_name' => 'Rate', 'domain' => 'currency_rate', 'percent' => 35],
+			],
+			'row3' => [
+				'blank2' => ['order' => 1, 'row_order' => 300, 'label_name' => ' ', 'percent' => 15],
+				'cy_currrate_provider_name' => ['order' => 5, 'label_name' => 'Provider Name', 'domain' => 'name', 'null' => true, 'percent' => 85],
 			]
 		]
 	];

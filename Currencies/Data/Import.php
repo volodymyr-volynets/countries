@@ -59,6 +59,8 @@ class Import extends \Object\Import {
 						]
 					]
 				],
+				/*
+				 * These are no longer supported nor work
 				[
 					'sm_feature_module_code' => 'CY',
 					'sm_feature_code' => 'CY::GOOGLE_YAHOO_PROVIDERS',
@@ -75,6 +77,7 @@ class Import extends \Object\Import {
 						]
 					]
 				]
+				*/
 			]
 		],
 		'tasks' => [

@@ -20,7 +20,7 @@ class Rates extends \Object\DataSource {
 
 	public $primary_model = '\Numbers\Countries\Currencies\Model\Rates';
 	public $parameters = [
-		'organization_id' => ['name' => 'Organization #', 'domain' => 'organization_id', 'required' => true],
+		'organization_id' => ['name' => 'Organization #', 'domain' => 'organization_id', 'multiple_column' => true, 'required' => true],
 		'document_date' => ['name' => 'Document Date', 'type' => 'date', 'required' => true],
 		'currency_type' => ['name' => 'Currency Type', 'domain' => 'currency_type', 'required' => true],
 		'source_currency_code' => ['name' => 'Source Currency', 'domain' => 'currency_code', 'required' => true],
