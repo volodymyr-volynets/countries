@@ -27,8 +27,13 @@ class Types extends \Object\Table {
 	];
 	public $history = false;
 	public $audit = false;
-	public $options_map = [];
-	public $options_active = [];
+	public $options_map = [
+		'cm_addrtype_name' => 'name',
+		'cm_addrtype_inactive' => 'inactive'
+	];
+	public $options_active = [
+		'cm_addrtype_inactive' => 0
+	];
 	public $engine = [
 		'MySQLi' => 'InnoDB'
 	];
