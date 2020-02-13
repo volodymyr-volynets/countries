@@ -29,6 +29,7 @@ class Addresses extends \Object\Table {
 
 	public $attributes = true;
 	public $details_pk = ['wg_address_type_code'];
+	public $model_map_options = [];
 
 	/**
 	 * Constructor
@@ -52,6 +53,7 @@ class Addresses extends \Object\Table {
 		$this->columns['wg_address_primary'] = ['name' => 'Primary', 'type' => 'boolean'];
 		$this->columns['wg_address_latitude'] = ['name' => 'Latitude', 'domain' => 'geo_coordinate', 'null' => true];
 		$this->columns['wg_address_longitude'] = ['name' => 'Longitude', 'domain' => 'geo_coordinate', 'null' => true];
+		$this->columns['wg_address_instructions'] = ['name' => 'Instructions', 'domain' => 'description', 'null' => true];
 		$this->columns['wg_address_inactive'] = ['name' => 'Inactive', 'type' => 'boolean'];
 		$this->pk = array_merge(array_values($this->map), $this->details_pk);
 		// add constraints
@@ -115,16 +117,32 @@ class Addresses extends \Object\Table {
 		\Layout::addJs('/numbers/media_submodules/Numbers_Countries_Widgets_Addresses_Media_JS_DecodePostalCode.js');
 		// create a container
 		$new_container_link = ($options['container_link'] ?? '') . '_' . ($options['row_link'] ?? '') . '__container';
+		// collection key
+		if (!empty($options['details_parent_key'])) {
+			$details_collection_key = ['details', $options['details_parent_key'], 'details', $this->virtual_class_name];
+			$type = 'subdetails';
+			$attributes = false;
+			$new_container_link = ($options['container_link'] ?? '') . '_' . ($options['row_link'] ?? '') . '__container';
+		} else {
+			$details_collection_key = ['details', $this->virtual_class_name];
+			$type = 'details';
+			$attributes = true;
+		}
 		$form->container($new_container_link, [
-			'type' => 'details',
-			'details_rendering_type' => 'grid_with_label',
-			'details_new_rows' => 1,
+			'type' => $type,
+			'label_name' => $options['label_name'] ?? '',
+			'details_rendering_type' => $options['details_rendering_type'] ?? 'grid_with_label',
+			'details_new_rows' => $options['details_new_rows'] ?? 1,
+			'details_max_rows' => $options['details_max_rows'] ?? null,
+			'details_parent_key' => $options['details_parent_key'] ?? null,
 			'details_key' => $this->virtual_class_name,
 			'details_pk' => $this->details_pk,
-			'details_collection_key' => ['details', $this->virtual_class_name],
+			'pk' => $this->pk,
+			//'details_collection_key' => $details_collection_key,
 			'details_process_widget_data' => method_exists($this, 'formProcessWidgetData'),
-			'order' => 35000,
-			'required' => false
+			'details_convert_multiple_columns' => method_exists($this, 'convertMultipleColumns'),
+			'order' => $options['order'] ?? 35000,
+			'required' => $options['required'] ?? false
 		]);
 		// get global settings
 		$global_options = \Application::get('flag.global.widgets.addresses.options');
@@ -152,15 +170,36 @@ class Addresses extends \Object\Table {
 			'row5' => [
 				'wg_address_phone' => ['order' => 1, 'row_order' => 500, 'label_name' => 'Phone', 'domain' => 'phone', 'null' => true, 'percent' => 50],
 				'wg_address_fax' => ['order' => 2, 'label_name' => 'Fax', 'domain' => 'phone', 'null' => true, 'percent' => 50]
-			],
-			'row6' => [
-				'wg_address_email' => ['order' => 1, 'row_order' => 600, 'label_name' => 'Email', 'domain' => 'email', 'null' => true, 'percent' => 100]
-			],
-			'row7' => [
-				'wg_address_latitude' => ['order' => 1, 'row_order' => 700, 'label_name' => 'Latitude', 'domain' => 'geo_coordinate', 'null' => true, 'required' => 'c'],
-				'wg_address_longitude' => ['order' => 2, 'label_name' => 'Longitude', 'domain' => 'geo_coordinate', 'null' => true, 'required' => 'c'],
 			]
 		];
+		// skip email
+		if (!empty($this->model_map_options['skip_email'])) {
+			$elements[$form::HIDDEN] = [
+				'wg_address_email' => ['order' => 1, 'row_order' => 600, 'label_name' => 'Email', 'domain' => 'email', 'null' => true, 'method' => 'hidden']
+			];
+		} else {
+			$elements['row6'] = [
+				'wg_address_email' => ['order' => 1, 'row_order' => 600, 'label_name' => 'Email', 'domain' => 'email', 'null' => true, 'percent' => 100]
+			];
+		}
+		// skip coordinates
+		if (!empty($this->model_map_options['skip_coordinates'])) {
+			$elements[$form::HIDDEN] = [
+				'wg_address_latitude' => ['order' => 1, 'row_order' => 700, 'label_name' => 'Latitude', 'domain' => 'geo_coordinate', 'null' => true, 'method' => 'hidden'],
+				'wg_address_longitude' => ['order' => 2, 'label_name' => 'Longitude', 'domain' => 'geo_coordinate', 'null' => true, 'method' => 'hidden'],
+			];
+		} else {
+			$elements['row7'] = [
+				'wg_address_latitude' => ['order' => 1, 'row_order' => 700, 'label_name' => 'Latitude', 'domain' => 'geo_coordinate', 'null' => true, 'required' => 'c'],
+				'wg_address_longitude' => ['order' => 2, 'label_name' => 'Longitude', 'domain' => 'geo_coordinate', 'null' => true, 'required' => 'c'],
+			];
+		}
+		// instructions
+		if (!empty($this->model_map_options['show_instructions'])) {
+			$elements['row8'] = [
+				'wg_address_instructions' => ['order' => 1, 'row_order' => 800, 'label_name' => 'Shipping Instructions', 'domain' => 'description', 'null' => true, 'percent' => 100, 'method' => 'textarea', 'rows' => 3]
+			];
+		}
 		// add elements to the form
 		foreach ($elements as $k => $v) {
 			foreach ($v as $k2 => $v2) {
@@ -176,7 +215,7 @@ class Addresses extends \Object\Table {
 			$form->element($options['container_link'], $options['row_link'], $options['row_link'], ['container' => $new_container_link, 'order' => 1]);
 		}
 		// collection
-		array_key_set($form->collection['details'], $this->virtual_class_name, [
+		array_key_set($form->collection, $details_collection_key, [
 			'name' => 'Addresses',
 			'pk' => $this->pk,
 			'type' => '1M',
@@ -187,7 +226,7 @@ class Addresses extends \Object\Table {
 		// validate
 		$form->wrapper_methods['validate']['addresses_widget'] = [$this, 'validate'];
 		// attributes
-		if ($this->attributes) {
+		if ($this->attributes && $attributes) {
 			$form->container($new_container_link . '__attributes', [
 				'widget' => 'detail_attributes',
 				'type' => 'subdetails',
