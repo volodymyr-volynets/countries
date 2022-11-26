@@ -32,7 +32,9 @@ class Types extends \Object\Table {
 		'cy_currtype_name' => 'name',
 		'cy_currtype_inactive' => 'inactive'
 	];
-	public $options_active = [];
+	public $options_active = [
+		'cy_currtype_inactive' => 0
+	];
 	public $engine = [
 		'MySQLi' => 'InnoDB'
 	];
