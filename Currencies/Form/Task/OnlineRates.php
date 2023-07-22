@@ -19,12 +19,8 @@ class OnlineRates extends \Object\Form\Wrapper\Base {
 	public $elements = [
 		'top' => [
 			'provider_code' => [
-				'provider_code' => ['order' => 1, 'row_order' => 100, 'label_name' => 'Provider', 'domain' => 'group_code', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Providers', 'onchange' => 'this.form.submit();'],
-				'currency_type' => ['order' => 2, 'label_name' => 'Type', 'domain' => 'currency_type', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Types', 'onchange' => 'this.form.submit();'],
-			],
-			'source_currency_code' => [
-				'source_currency_code' => ['order' => 1, 'row_order' => 200, 'label_name' => 'Source Currency', 'domain' => 'currency_code', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Currencies', 'onchange' => 'this.form.submit();'],
-				'home_currency_code' => ['order' => 2, 'label_name' => 'Home Currency', 'domain' => 'currency_code', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Currencies', 'onchange' => 'this.form.submit();'],
+				'cy_currrate_provider_name' => ['order' => 1, 'row_order' => 100, 'label_name' => 'Provider', 'domain' => 'group_code', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Providers', 'onchange' => 'this.form.submit();'],
+				'cy_currrate_currency_type' => ['order' => 2, 'label_name' => 'Type', 'domain' => 'currency_type', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Types', 'onchange' => 'this.form.submit();'],
 			],
 			'organization_1' => [
 				'organization_1' => ['order' => 1, 'row_order' => 300, 'label_name' => 'Organization 1', 'domain' => 'organization_id', 'null' => true, 'percent' => 100, 'required' => true, 'method' => 'select', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive']
@@ -57,5 +53,9 @@ class OnlineRates extends \Object\Form\Wrapper\Base {
 		} else {
 			$form->error(DANGER, $result['error']);
 		}
+	}
+
+	public function save(& $form) {
+		return true;
 	}
 }

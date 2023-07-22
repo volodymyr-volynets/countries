@@ -8,14 +8,22 @@ class Online extends \Object\Form\Wrapper\Base {
 	public $options = [
 		'segment' => self::SEGMENT_FORM,
 		'actions' => [
-			'refresh' => true,
-			//'back' => true,
-			//'new' => true
+			'refresh' => true
 		]
 	];
 	public $containers = [
 		'top' => ['default_row_type' => 'grid', 'order' => 100],
-		'rate' => ['default_row_type' => 'grid', 'order' => 1000],
+		'buttons' => ['default_row_type' => 'grid', 'order' => 200],
+		'rates_container' => [
+			'type' => 'details',
+			'details_rendering_type' => 'table',
+			'details_new_rows' => 0,
+			'details_key' => '\Numbers\Countries\Currencies\Model\Rates',
+			'details_pk' => ['cy_currrate_id'],
+			'details_empty_warning_message' => true,
+			'required' => true,
+			'order' => 150
+		]
 	];
 	public $rows = [];
 	public $elements = [
@@ -24,45 +32,67 @@ class Online extends \Object\Form\Wrapper\Base {
 				'cy_currrate_provider_name' => ['order' => 1, 'row_order' => 100, 'label_name' => 'Provider', 'domain' => 'group_code', 'percent' => 100, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Providers', 'onchange' => 'this.form.submit();'],
 			],
 			'cy_currrate_source_currency_code' => [
-				'cy_currrate_source_currency_code' => ['order' => 1, 'row_order' => 300, 'label_name' => 'Source Currency', 'domain' => 'currency_code', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Currencies', 'onchange' => 'this.form.submit();'],
-				'cy_currrate_home_currency_code' => ['order' => 2, 'label_name' => 'Home Currency', 'domain' => 'currency_code', 'percent' => 50, 'required' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Currencies', 'onchange' => 'this.form.submit();'],
+				'cy_currrate_datetime' => ['order' => 1, 'row_order' => 200, 'label_name' => 'Datetime', 'type' => 'datetime', 'percent' => 33, 'required' => true, 'method' => 'calendar', 'calendar_icon' => 'right', 'onchange' => 'this.form.submit();'],
+				'cy_currrate_currency_type' => ['order' => 2, 'label_name' => 'Type', 'domain' => 'currency_type', 'required' => true, 'percent' => 33, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Types', 'onchange' => 'this.form.submit();'],
 			],
-		],
-		'rate' => [
-			'rate' => [
-				'rate' => ['order' => 1, 'row_order' => 500, 'label_name' => 'Rate', 'custom_renderer' => '\Numbers\Countries\Currencies\Form\Online::renderRate'],
+			'organizations' => [
+				'\Numbers\Countries\Currencies\Model\Rate\Organizations' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organizations', 'null' => true, 'required' => true, 'domain' => 'organization_id', 'multiple_column' => 'cy_curateorg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive'],
 			]
+		],
+		'rates_container' => [
+			'row1' => [
+				'cy_currrate_source_currency_code' => ['order' => 1, 'row_order' => 300, 'label_name' => 'Source Currency', 'domain' => 'currency_code', 'percent' => 33, 'required' => true, 'readonly' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Currencies'],
+				'cy_currrate_home_currency_code' => ['order' => 2, 'label_name' => 'Home Currency', 'domain' => 'currency_code', 'percent' => 33, 'required' => true, 'readonly' => true, 'method' => 'select', 'options_model' => '\Numbers\Countries\Currencies\Model\Currencies'],
+				'cy_currrate_rate' => ['order' => 3, 'label_name' => 'Rate', 'domain' => 'currency_rate', 'percent' => 34, 'required' => true],
+			]
+		],
+		'buttons' => [
+			self::BUTTONS => self::BUTTONS_DATA_GROUP
 		]
 	];
 
-	public function renderRate(& $form, & $options, & $value, & $neighbouring_values) {
-		if (!empty($form->values['cy_currrate_provider_name']) && !empty($form->values['cy_currrate_source_currency_code']) && !empty($form->values['cy_currrate_home_currency_code'])) {
+	public function refresh(& $form) {
+		/* @var $form \Object\Form\Base */
+		if ($form->hasErrors()) {
+			return;
+		}
+		if (!empty($form->values['cy_currrate_provider_name']) && !empty($form->values['cy_currrate_datetime']) && !empty($form->values['cy_currrate_currency_type'])) {
 			$model = new \Numbers\Countries\Currencies\Model\Providers();
 			$data = $model->get([
 				'where' => [
 					'cy_provider_code' => $form->values['cy_currrate_provider_name']
 				],
 				'single_row' => true,
-				'pk' => ['cy_provider_code']
+				'pk' => null
 			]);
 			$method = \Factory::method($data['cy_provider_method'], null, true);
-			$result = call_user_func_array($method, [[
-				'source_currency_code' => $form->values['cy_currrate_source_currency_code'],
-				'home_currency_code' => $form->values['cy_currrate_home_currency_code']
-			]]);
+			$result = call_user_func_array($method, [$data['cy_provider_home_currency_code'], $form->values['cy_currrate_datetime']]);
 			if ($result['success']) {
-				$params = [
-					'cy_currrate_datetime' => \Format::now('datetime'),
-					'cy_currrate_source_currency_code' => $form->values['cy_currrate_source_currency_code'],
-					'cy_currrate_home_currency_code' => $form->values['cy_currrate_home_currency_code'],
-					'cy_currrate_rate' => $result['rate'],
-					'cy_currrate_provider_name' => $data['cy_provider_name'],
-				];
-				return '<a class="form-control form-control-no-border" href="/Numbers/Countries/Currencies/Controller/Rates/_Edit?' . http_build_query2($params) . '">' . \Format::currencyRate($result['rate']) . '</a>';
+				$form->values['\Numbers\Countries\Currencies\Model\Rates'] = $result['rows'];
 			} else {
 				$form->error(DANGER, 'Rate not found!');
 			}
 		}
-		return '';
+	}
+
+	public function validate(& $form) {
+		/* @var $form \Object\Form\Base */
+		$data = [];
+		foreach ($form->values['\Numbers\Countries\Currencies\Model\Rates'] as $k => $v) {
+			$v['cy_currrate_datetime'] = $form->values['cy_currrate_datetime'];
+			$v['cy_currrate_currency_type'] = $form->values['cy_currrate_currency_type'];
+			$v['cy_currrate_provider_name'] = $form->values['cy_currrate_provider_name'];
+			$v['\Numbers\Countries\Currencies\Model\Rate\Organizations'] = $form->values['\Numbers\Countries\Currencies\Model\Rate\Organizations'];
+			$data[] = $v;
+		}
+		$collection = new \Numbers\Countries\Currencies\Model\Collection\Rates();
+		$result = $collection->mergeMultiple($data);
+		if (!$result['success']) {
+			$form->error(DANGER, $result['error']);
+		}
+	}
+
+	public function save(& $form) {
+		return true;
 	}
 }

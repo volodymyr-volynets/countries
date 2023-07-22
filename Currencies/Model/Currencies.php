@@ -35,7 +35,10 @@ class Currencies extends \Object\Table {
 		'cy_currency_fraction_digits' => 'cy_currency_fraction_digits',
 		'cy_currency_inactive' => 'inactive',
 	];
-	public $options_active = [];
+	public $options_active = [
+		'cy_currency_inactive' => 0
+	];
+	public const selectOptionsActive = '\Numbers\Countries\Currencies\Model\Currencies::optionsActive';
 	public $engine = [
 		'MySQLi' => 'InnoDB'
 	];
