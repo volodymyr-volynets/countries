@@ -59,25 +59,6 @@ class Import extends \Object\Import {
 						]
 					]
 				],
-				/*
-				 * These are no longer supported nor work
-				[
-					'sm_feature_module_code' => 'CY',
-					'sm_feature_code' => 'CY::GOOGLE_YAHOO_PROVIDERS',
-					'sm_feature_type' => 30,
-					'sm_feature_name' => 'C/Y Google & Yahoo Providers',
-					'sm_feature_icon' => 'fas fa-database',
-					'sm_feature_activation_model' => '\Numbers\Countries\Currencies\Data\Features\GoogleYahooProviders',
-					'sm_feature_activated_by_default' => 0,
-					'sm_feature_inactive' => 0,
-					'\Numbers\Backend\System\Modules\Model\Module\Dependencies' => [
-						[
-							'sm_mdldep_child_module_code' => 'CY',
-							'sm_mdldep_child_feature_code' => 'CY::CURRENCIES'
-						]
-					]
-				]
-				*/
 			]
 		],
 		'tasks' => [
@@ -94,25 +75,13 @@ class Import extends \Object\Import {
 					'ts_task_inactive' => 0,
 					'\Numbers\Users\TaskScheduler\Model\TaskParameters' => [
 						[
-							'ts_tskparam_name' => 'provider_code',
+							'ts_tskparam_name' => 'cy_currrate_provider_name',
 							'ts_tskparam_description' => 'Provider Code',
 							'ts_tskparam_default' => null,
 							'ts_tskparam_mandatory' => 1
 						],
 						[
-							'ts_tskparam_name' => 'source_currency_code',
-							'ts_tskparam_description' => 'Source Currency Code',
-							'ts_tskparam_default' => null,
-							'ts_tskparam_mandatory' => 1
-						],
-						[
-							'ts_tskparam_name' => 'home_currency_code',
-							'ts_tskparam_description' => 'Home Currency Code',
-							'ts_tskparam_default' => null,
-							'ts_tskparam_mandatory' => 1
-						],
-						[
-							'ts_tskparam_name' => 'currency_type',
+							'ts_tskparam_name' => 'cy_currrate_currency_type',
 							'ts_tskparam_description' => 'Currency Type',
 							'ts_tskparam_default' => null,
 							'ts_tskparam_mandatory' => 1

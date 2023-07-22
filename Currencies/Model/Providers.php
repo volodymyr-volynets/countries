@@ -17,10 +17,17 @@ class Providers extends \Object\Table {
 		'cy_provider_code' => ['name' => 'Code', 'domain' => 'group_code'],
 		'cy_provider_name' => ['name' => 'Name', 'domain' => 'name'],
 		'cy_provider_method' => ['name' => 'Method', 'type' => 'text'],
+		'cy_provider_home_currency_code' => ['name' => 'Currency Code', 'domain' => 'currency_code', 'null' => true],
 		'cy_provider_inactive' => ['name' => 'Inactive', 'type' => 'boolean']
 	];
 	public $constraints = [
-		'cy_providers_pk' => ['type' => 'pk', 'columns' => ['cy_provider_tenant_id', 'cy_provider_code']]
+		'cy_providers_pk' => ['type' => 'pk', 'columns' => ['cy_provider_tenant_id', 'cy_provider_code']],
+		'cy_provider_home_currency_code_fk' => [
+			'type' => 'fk',
+			'columns' => ['cy_provider_tenant_id', 'cy_provider_home_currency_code'],
+			'foreign_model' => '\Numbers\Countries\Currencies\Model\Currencies',
+			'foreign_columns' => ['cy_currency_tenant_id', 'cy_currency_code']
+		]
 	];
 	public $indexes = [
 		'cy_providers_fulltext_idx' => ['type' => 'fulltext', 'columns' => ['cy_provider_name']]
