@@ -1,6 +1,6 @@
 "cy_currency_code","cy_currency_name","cy_currency_symbol","cy_currency_fraction_digits","cy_currency_inactive"
 "USD","U.S. Dollars","$",2,0
-"CAD","Canadian Dollars","$",2,0
+"CAD","Canadian Dollars","CA$",2,0
 "CHF","Swiss Francs","SwF",2,0
 "CNY","People's Rep of China Renminbi","RMB",2,0
 "GBP","Pound Sterling","£",2,0

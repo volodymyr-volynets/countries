@@ -23,10 +23,11 @@ class Types extends \Object\Form\Wrapper\Base {
 		'top' => [
 			'cy_currtype_code' => [
 				'cy_currtype_code' => ['order' => 1, 'row_order' => 100, 'label_name' => 'Code', 'domain' => 'currency_type', 'percent' => 95, 'required' => true, 'navigation' => true],
-				'cy_currtype_inactive' => ['order' => 3, 'label_name' => 'Inactive', 'type' => 'boolean', 'percent' => 5]
+				'cy_currtype_inactive' => ['order' => 2, 'label_name' => 'Inactive', 'type' => 'boolean', 'percent' => 5]
 			],
 			'cy_currtype_name' => [
-				'cy_currtype_name' => ['order' => 1, 'row_order' => 200, 'label_name' => 'Name', 'domain' => 'name', 'percent' => 100, 'required' => true],
+				'cy_currtype_name' => ['order' => 1, 'row_order' => 200, 'label_name' => 'Name', 'domain' => 'name', 'percent' => 95, 'required' => true],
+				'cy_currtype_primary' => ['order' => 2, 'label_name' => 'Primary', 'type' => 'boolean', 'percent' => 5],
 			],
 			'organizations' => [
 				'\Numbers\Countries\Currencies\Model\Type\Organizations' => ['order' => 1, 'row_order' => 400, 'label_name' => 'Organizations', 'domain' => 'organization_id', 'multiple_column' => 'cy_curtypeorg_organization_id', 'percent' => 100, 'method' => 'multiselect', 'tree' => true, 'options_model' => '\Numbers\Users\Organizations\Model\Organizations::optionsGroupedActive'],

@@ -21,6 +21,7 @@ class Currencies extends \Object\Import {
 				[
 					'cy_currtype_code' => 'SPOT',
 					'cy_currtype_name' => 'Spot',
+					'cy_currtype_primary' => 1,
 					'cy_currtype_inactive' => 0
 				],
 				[

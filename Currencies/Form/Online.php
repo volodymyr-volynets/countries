@@ -70,7 +70,7 @@ class Online extends \Object\Form\Wrapper\Base {
 			if ($result['success']) {
 				$form->values['\Numbers\Countries\Currencies\Model\Rates'] = $result['rows'];
 			} else {
-				$form->error(DANGER, 'Rate not found!');
+				$form->error(DANGER, $result['error']);
 			}
 		}
 	}
@@ -89,6 +89,8 @@ class Online extends \Object\Form\Wrapper\Base {
 		$result = $collection->mergeMultiple($data);
 		if (!$result['success']) {
 			$form->error(DANGER, $result['error']);
+		} else {
+			$form->error(SUCCESS, \Object\Content\Messages::OPERATION_EXECUTED);
 		}
 	}
 

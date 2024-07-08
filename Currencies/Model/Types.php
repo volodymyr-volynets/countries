@@ -16,6 +16,7 @@ class Types extends \Object\Table {
 		'cy_currtype_tenant_id' => ['name' => 'Tenant #', 'domain' => 'tenant_id'],
 		'cy_currtype_code' => ['name' => 'Type Code', 'domain' => 'currency_type', 'null' => false],
 		'cy_currtype_name' => ['name' => 'Name', 'domain' => 'name'],
+		'cy_currtype_primary' => ['name' => 'Primary', 'type' => 'boolean'],
 		'cy_currtype_inactive' => ['name' => 'Inactive', 'type' => 'boolean']
 	];
 	public $constraints = [
