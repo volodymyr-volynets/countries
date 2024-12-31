@@ -2,108 +2,151 @@
 
 namespace Numbers\Countries\Countries\Model;
 class PostalCodesAR extends \Object\ActiveRecord {
-	/**
-	 * @var string
-	 */
-	public string $object_table_class = \Numbers\Countries\Countries\Model\PostalCodes::class;
 
-	/**
-	 * Constructing object
-	 *
-	 * @param array $options
-	 *		skip_db_object
-	 *		skip_table_object
-	 */
-	public function __construct($options = []) {
-		if (empty($options['skip_table_object'])) {
-			$this->object_table_object = new $this->object_table_class($options);
-		}
-	}
-	/**
-	 * Tenant #
-	 *
-	 *
-	 *
-	 * {domain{tenant_id}}
-	 *
-	 * @var int Domain: tenant_id Type: integer
-	 */
-	public ?int $cm_postal_tenant_id = NULL;
 
-	/**
-	 * Country Code
-	 *
-	 *
-	 *
-	 * {domain{country_code}}
-	 *
-	 * @var string Domain: country_code Type: char
-	 */
-	public ?string $cm_postal_country_code = null;
 
-	/**
-	 * Province Code
-	 *
-	 *
-	 *
-	 * {domain{province_code}}
-	 *
-	 * @var string Domain: province_code Type: varchar
-	 */
-	public ?string $cm_postal_province_code = null;
+    /**
+     * @var string
+     */
+    public string $object_table_class = \Numbers\Countries\Countries\Model\PostalCodes::class;
 
-	/**
-	 * Postal Code
-	 *
-	 *
-	 *
-	 * {domain{postal_code}}
-	 *
-	 * @var string Domain: postal_code Type: varchar
-	 */
-	public ?string $cm_postal_postal_code = null;
+    /**
+     * @var array
+     */
+    public array $object_table_pk = ['cm_postal_tenant_id','cm_postal_country_code','cm_postal_postal_code'];
+    /**
+     * Tenant #
+     *
+     *
+     *
+     * {domain{tenant_id}}
+     *
+     * @var int|null Domain: tenant_id Type: integer
+     */
+    public int|null $cm_postal_tenant_id = NULL {
+                        get => $this->cm_postal_tenant_id;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_postal_tenant_id', $value);
+                            $this->cm_postal_tenant_id = $value;
+                        }
+                    }
 
-	/**
-	 * City
-	 *
-	 *
-	 *
-	 * {domain{name}}
-	 *
-	 * @var string Domain: name Type: varchar
-	 */
-	public ?string $cm_postal_city = null;
+    /**
+     * Country Code
+     *
+     *
+     *
+     * {domain{country_code}}
+     *
+     * @var string|null Domain: country_code Type: char
+     */
+    public string|null $cm_postal_country_code = null {
+                        get => $this->cm_postal_country_code;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_postal_country_code', $value);
+                            $this->cm_postal_country_code = $value;
+                        }
+                    }
 
-	/**
-	 * Latitude
-	 *
-	 *
-	 *
-	 * {domain{geo_coordinate}}
-	 *
-	 * @var float Domain: geo_coordinate Type: numeric
-	 */
-	public ?float $cm_postal_latitude = NULL;
+    /**
+     * Province Code
+     *
+     *
+     *
+     * {domain{province_code}}
+     *
+     * @var string|null Domain: province_code Type: varchar
+     */
+    public string|null $cm_postal_province_code = null {
+                        get => $this->cm_postal_province_code;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_postal_province_code', $value);
+                            $this->cm_postal_province_code = $value;
+                        }
+                    }
 
-	/**
-	 * Longitude
-	 *
-	 *
-	 *
-	 * {domain{geo_coordinate}}
-	 *
-	 * @var float Domain: geo_coordinate Type: numeric
-	 */
-	public ?float $cm_postal_longitude = NULL;
+    /**
+     * Postal Code
+     *
+     *
+     *
+     * {domain{postal_code}}
+     *
+     * @var string|null Domain: postal_code Type: varchar
+     */
+    public string|null $cm_postal_postal_code = null {
+                        get => $this->cm_postal_postal_code;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_postal_postal_code', $value);
+                            $this->cm_postal_postal_code = $value;
+                        }
+                    }
 
-	/**
-	 * Inactive
-	 *
-	 *
-	 *
-	 *
-	 *
-	 * @var int Type: boolean
-	 */
-	public ?int $cm_postal_inactive = 0;
+    /**
+     * City
+     *
+     *
+     *
+     * {domain{name}}
+     *
+     * @var string|null Domain: name Type: varchar
+     */
+    public string|null $cm_postal_city = null {
+                        get => $this->cm_postal_city;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_postal_city', $value);
+                            $this->cm_postal_city = $value;
+                        }
+                    }
+
+    /**
+     * Latitude
+     *
+     *
+     *
+     * {domain{geo_coordinate}}
+     *
+     * @var float|null Domain: geo_coordinate Type: numeric
+     */
+    public float|null $cm_postal_latitude = NULL {
+                        get => $this->cm_postal_latitude;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_postal_latitude', $value);
+                            $this->cm_postal_latitude = $value;
+                        }
+                    }
+
+    /**
+     * Longitude
+     *
+     *
+     *
+     * {domain{geo_coordinate}}
+     *
+     * @var float|null Domain: geo_coordinate Type: numeric
+     */
+    public float|null $cm_postal_longitude = NULL {
+                        get => $this->cm_postal_longitude;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_postal_longitude', $value);
+                            $this->cm_postal_longitude = $value;
+                        }
+                    }
+
+    /**
+     * Inactive
+     *
+     *
+     *
+     *
+     *
+     * @var int|null Type: boolean
+     */
+    public int|null $cm_postal_inactive = 0 {
+                        get => $this->cm_postal_inactive;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_postal_inactive', $value);
+                            $this->cm_postal_inactive = $value;
+                        }
+                    }
 }

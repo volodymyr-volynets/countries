@@ -2,130 +2,185 @@
 
 namespace Numbers\Countries\Currencies\Model;
 class RatesAR extends \Object\ActiveRecord {
-	/**
-	 * @var string
-	 */
-	public string $object_table_class = \Numbers\Countries\Currencies\Model\Rates::class;
 
-	/**
-	 * Constructing object
-	 *
-	 * @param array $options
-	 *		skip_db_object
-	 *		skip_table_object
-	 */
-	public function __construct($options = []) {
-		if (empty($options['skip_table_object'])) {
-			$this->object_table_object = new $this->object_table_class($options);
-		}
-	}
-	/**
-	 * Tenant #
-	 *
-	 *
-	 *
-	 * {domain{tenant_id}}
-	 *
-	 * @var int Domain: tenant_id Type: integer
-	 */
-	public ?int $cy_currrate_tenant_id = NULL;
 
-	/**
-	 * Rate #
-	 *
-	 *
-	 *
-	 * {domain{currency_rate_id_sequence}}
-	 *
-	 * @var int Domain: currency_rate_id_sequence Type: bigserial
-	 */
-	public ?int $cy_currrate_id = null;
 
-	/**
-	 * Datetime
-	 *
-	 *
-	 *
-	 *
-	 *
-	 * @var string Type: datetime
-	 */
-	public ?string $cy_currrate_datetime = null;
+    /**
+     * @var string
+     */
+    public string $object_table_class = \Numbers\Countries\Currencies\Model\Rates::class;
 
-	/**
-	 * Type
-	 *
-	 *
-	 *
-	 * {domain{currency_type}}
-	 *
-	 * @var string Domain: currency_type Type: varchar
-	 */
-	public ?string $cy_currrate_currency_type = null;
+    /**
+     * @var array
+     */
+    public array $object_table_pk = ['cy_currrate_tenant_id','cy_currrate_id'];
+    /**
+     * Tenant #
+     *
+     *
+     *
+     * {domain{tenant_id}}
+     *
+     * @var int|null Domain: tenant_id Type: integer
+     */
+    public int|null $cy_currrate_tenant_id = NULL {
+                        get => $this->cy_currrate_tenant_id;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_tenant_id', $value);
+                            $this->cy_currrate_tenant_id = $value;
+                        }
+                    }
 
-	/**
-	 * Source Currency
-	 *
-	 *
-	 *
-	 * {domain{currency_code}}
-	 *
-	 * @var string Domain: currency_code Type: char
-	 */
-	public ?string $cy_currrate_source_currency_code = null;
+    /**
+     * Rate #
+     *
+     *
+     *
+     * {domain{currency_rate_id_sequence}}
+     *
+     * @var int|null Domain: currency_rate_id_sequence Type: bigserial
+     */
+    public int|null $cy_currrate_id = null {
+                        get => $this->cy_currrate_id;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_id', $value);
+                            $this->cy_currrate_id = $value;
+                        }
+                    }
 
-	/**
-	 * Home Currency
-	 *
-	 *
-	 *
-	 * {domain{currency_code}}
-	 *
-	 * @var string Domain: currency_code Type: char
-	 */
-	public ?string $cy_currrate_home_currency_code = null;
+    /**
+     * Datetime
+     *
+     *
+     *
+     *
+     *
+     * @var string|null Type: datetime
+     */
+    public string|null $cy_currrate_datetime = null {
+                        get => $this->cy_currrate_datetime;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_datetime', $value);
+                            $this->cy_currrate_datetime = $value;
+                        }
+                    }
 
-	/**
-	 * Rate
-	 *
-	 *
-	 *
-	 * {domain{currency_rate}}
-	 *
-	 * @var bcnumeric Domain: currency_rate Type: bcnumeric
-	 */
-	public ?bcnumeric $cy_currrate_rate = '1.00000000';
+    /**
+     * Type
+     *
+     *
+     *
+     * {domain{currency_type}}
+     *
+     * @var string|null Domain: currency_type Type: varchar
+     */
+    public string|null $cy_currrate_currency_type = null {
+                        get => $this->cy_currrate_currency_type;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_currency_type', $value);
+                            $this->cy_currrate_currency_type = $value;
+                        }
+                    }
 
-	/**
-	 * Provider Name
-	 *
-	 *
-	 *
-	 * {domain{name}}
-	 *
-	 * @var string Domain: name Type: varchar
-	 */
-	public ?string $cy_currrate_provider_name = null;
+    /**
+     * Source Currency
+     *
+     *
+     *
+     * {domain{currency_code}}
+     *
+     * @var string|null Domain: currency_code Type: char
+     */
+    public string|null $cy_currrate_source_currency_code = null {
+                        get => $this->cy_currrate_source_currency_code;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_source_currency_code', $value);
+                            $this->cy_currrate_source_currency_code = $value;
+                        }
+                    }
 
-	/**
-	 * Inactive
-	 *
-	 *
-	 *
-	 *
-	 *
-	 * @var int Type: boolean
-	 */
-	public ?int $cy_currrate_inactive = 0;
+    /**
+     * Home Currency
+     *
+     *
+     *
+     * {domain{currency_code}}
+     *
+     * @var string|null Domain: currency_code Type: char
+     */
+    public string|null $cy_currrate_home_currency_code = null {
+                        get => $this->cy_currrate_home_currency_code;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_home_currency_code', $value);
+                            $this->cy_currrate_home_currency_code = $value;
+                        }
+                    }
 
-	/**
-	 * Optimistic Lock
-	 *
-	 *
-	 *
-	 * {domain{optimistic_lock}}
-	 *
-	 * @var string Domain: optimistic_lock Type: timestamp
-	 */
-	public ?string $cy_currrate_optimistic_lock = 'now()';
+    /**
+     * Rate
+     *
+     *
+     *
+     * {domain{currency_rate}}
+     *
+     * @var mixed Domain: currency_rate Type: bcnumeric
+     */
+    public mixed $cy_currrate_rate = '1.00000000' {
+                        get => $this->cy_currrate_rate;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_rate', $value);
+                            $this->cy_currrate_rate = $value;
+                        }
+                    }
+
+    /**
+     * Provider Name
+     *
+     *
+     *
+     * {domain{name}}
+     *
+     * @var string|null Domain: name Type: varchar
+     */
+    public string|null $cy_currrate_provider_name = null {
+                        get => $this->cy_currrate_provider_name;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_provider_name', $value);
+                            $this->cy_currrate_provider_name = $value;
+                        }
+                    }
+
+    /**
+     * Inactive
+     *
+     *
+     *
+     *
+     *
+     * @var int|null Type: boolean
+     */
+    public int|null $cy_currrate_inactive = 0 {
+                        get => $this->cy_currrate_inactive;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_inactive', $value);
+                            $this->cy_currrate_inactive = $value;
+                        }
+                    }
+
+    /**
+     * Optimistic Lock
+     *
+     *
+     *
+     * {domain{optimistic_lock}}
+     *
+     * @var string|null Domain: optimistic_lock Type: timestamp
+     */
+    public string|null $cy_currrate_optimistic_lock = 'now()' {
+                        get => $this->cy_currrate_optimistic_lock;
+                        set {
+                            $this->setFullPkAndFilledColumn('cy_currrate_optimistic_lock', $value);
+                            $this->cy_currrate_optimistic_lock = $value;
+                        }
+                    }
 }

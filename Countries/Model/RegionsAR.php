@@ -2,64 +2,83 @@
 
 namespace Numbers\Countries\Countries\Model;
 class RegionsAR extends \Object\ActiveRecord {
-	/**
-	 * @var string
-	 */
-	public string $object_table_class = \Numbers\Countries\Countries\Model\Regions::class;
 
-	/**
-	 * Constructing object
-	 *
-	 * @param array $options
-	 *		skip_db_object
-	 *		skip_table_object
-	 */
-	public function __construct($options = []) {
-		if (empty($options['skip_table_object'])) {
-			$this->object_table_object = new $this->object_table_class($options);
-		}
-	}
-	/**
-	 * Tenant #
-	 *
-	 *
-	 *
-	 * {domain{tenant_id}}
-	 *
-	 * @var int Domain: tenant_id Type: integer
-	 */
-	public ?int $cm_region_tenant_id = NULL;
 
-	/**
-	 * Region #
-	 *
-	 *
-	 *
-	 * {domain{country_number}}
-	 *
-	 * @var int Domain: country_number Type: smallint
-	 */
-	public ?int $cm_region_id = NULL;
 
-	/**
-	 * Name
-	 *
-	 *
-	 *
-	 * {domain{name}}
-	 *
-	 * @var string Domain: name Type: varchar
-	 */
-	public ?string $cm_region_name = null;
+    /**
+     * @var string
+     */
+    public string $object_table_class = \Numbers\Countries\Countries\Model\Regions::class;
 
-	/**
-	 * Inactive
-	 *
-	 *
-	 *
-	 *
-	 *
-	 * @var int Type: boolean
-	 */
-	public ?int $cm_region_inactive = 0;
+    /**
+     * @var array
+     */
+    public array $object_table_pk = ['cm_region_tenant_id','cm_region_id'];
+    /**
+     * Tenant #
+     *
+     *
+     *
+     * {domain{tenant_id}}
+     *
+     * @var int|null Domain: tenant_id Type: integer
+     */
+    public int|null $cm_region_tenant_id = NULL {
+                        get => $this->cm_region_tenant_id;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_region_tenant_id', $value);
+                            $this->cm_region_tenant_id = $value;
+                        }
+                    }
+
+    /**
+     * Region #
+     *
+     *
+     *
+     * {domain{country_number}}
+     *
+     * @var int|null Domain: country_number Type: smallint
+     */
+    public int|null $cm_region_id = NULL {
+                        get => $this->cm_region_id;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_region_id', $value);
+                            $this->cm_region_id = $value;
+                        }
+                    }
+
+    /**
+     * Name
+     *
+     *
+     *
+     * {domain{name}}
+     *
+     * @var string|null Domain: name Type: varchar
+     */
+    public string|null $cm_region_name = null {
+                        get => $this->cm_region_name;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_region_name', $value);
+                            $this->cm_region_name = $value;
+                        }
+                    }
+
+    /**
+     * Inactive
+     *
+     *
+     *
+     *
+     *
+     * @var int|null Type: boolean
+     */
+    public int|null $cm_region_inactive = 0 {
+                        get => $this->cm_region_inactive;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_region_inactive', $value);
+                            $this->cm_region_inactive = $value;
+                        }
+                    }
 }

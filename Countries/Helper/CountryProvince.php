@@ -1,51 +1,66 @@
 <?php
 
+/*
+ * This file is part of Numbers Framework.
+ *
+ * (c) Volodymyr Volynets <volodymyr.volynets@gmail.com>
+ *
+ * This source file is subject to the Apache 2.0 license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Numbers\Countries\Countries\Helper;
-class CountryProvince {
 
-	/**
-	 * Cached countries
-	 *
-	 * @var array
-	 */
-	private static $cached_countries;
+use Numbers\Countries\Countries\Model\Countries;
+use Numbers\Countries\Countries\Model\Provinces;
 
-	/**
-	 * Cached provinces
-	 *
-	 * @var array
-	 */
-	private static $cached_provinces = [];
+class CountryProvince
+{
+    /**
+     * Cached countries
+     *
+     * @var array
+     */
+    private static $cached_countries;
 
-	/**
-	 * Country
-	 *
-	 * @param string $country_code
-	 * @return string
-	 */
-	public static function country(string $country_code) : string {
-		if (!isset(self::$cached_countries)) {
-			self::$cached_countries = \Numbers\Countries\Countries\Model\Countries::optionsStatic(['i18n' => false]);
-		}
-		return self::$cached_countries[$country_code]['name'];
-	}
+    /**
+     * Cached provinces
+     *
+     * @var array
+     */
+    private static $cached_provinces = [];
 
-	/**
-	 * Province
-	 *
-	 * @param string $country_code
-	 * @param string $province_code
-	 * @return string
-	 */
-	public static function province(string $country_code, string $province_code) : string {
-		if (!isset(self::$cached_provinces[$country_code])) {
-			self::$cached_provinces[$country_code] = \Numbers\Countries\Countries\Model\Provinces::optionsStatic([
-				'where' => [
-					'cm_province_country_code' => $country_code
-				],
-				'i18n' => false
-			]);
-		}
-		return self::$cached_provinces[$country_code][$province_code]['name'];
-	}
+    /**
+     * Country
+     *
+     * @param string $country_code
+     * @return string
+     */
+    public static function country(string $country_code): string
+    {
+        if (!isset(self::$cached_countries)) {
+            self::$cached_countries = Countries::optionsStatic(['i18n' => false]);
+        }
+        return self::$cached_countries[$country_code]['name'];
+    }
+
+    /**
+     * Province
+     *
+     * @param string $country_code
+     * @param string $province_code
+     * @return string
+     */
+    public static function province(string $country_code, string $province_code): string
+    {
+        if (!isset(self::$cached_provinces[$country_code])) {
+            self::$cached_provinces[$country_code] = Provinces::optionsStatic([
+                'where' => [
+                    'cm_province_country_code' => $country_code
+                ],
+                'i18n' => false
+            ]);
+        }
+        return self::$cached_provinces[$country_code][$province_code]['name'];
+    }
 }

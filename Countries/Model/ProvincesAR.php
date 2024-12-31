@@ -2,75 +2,100 @@
 
 namespace Numbers\Countries\Countries\Model;
 class ProvincesAR extends \Object\ActiveRecord {
-	/**
-	 * @var string
-	 */
-	public string $object_table_class = \Numbers\Countries\Countries\Model\Provinces::class;
 
-	/**
-	 * Constructing object
-	 *
-	 * @param array $options
-	 *		skip_db_object
-	 *		skip_table_object
-	 */
-	public function __construct($options = []) {
-		if (empty($options['skip_table_object'])) {
-			$this->object_table_object = new $this->object_table_class($options);
-		}
-	}
-	/**
-	 * Tenant #
-	 *
-	 *
-	 *
-	 * {domain{tenant_id}}
-	 *
-	 * @var int Domain: tenant_id Type: integer
-	 */
-	public ?int $cm_province_tenant_id = NULL;
 
-	/**
-	 * Country Code
-	 *
-	 *
-	 *
-	 * {domain{country_code}}
-	 *
-	 * @var string Domain: country_code Type: char
-	 */
-	public ?string $cm_province_country_code = null;
 
-	/**
-	 * Province Code
-	 *
-	 *
-	 *
-	 * {domain{province_code}}
-	 *
-	 * @var string Domain: province_code Type: varchar
-	 */
-	public ?string $cm_province_province_code = null;
+    /**
+     * @var string
+     */
+    public string $object_table_class = \Numbers\Countries\Countries\Model\Provinces::class;
 
-	/**
-	 * Name
-	 *
-	 *
-	 *
-	 * {domain{name}}
-	 *
-	 * @var string Domain: name Type: varchar
-	 */
-	public ?string $cm_province_name = null;
+    /**
+     * @var array
+     */
+    public array $object_table_pk = ['cm_province_tenant_id','cm_province_country_code','cm_province_province_code'];
+    /**
+     * Tenant #
+     *
+     *
+     *
+     * {domain{tenant_id}}
+     *
+     * @var int|null Domain: tenant_id Type: integer
+     */
+    public int|null $cm_province_tenant_id = NULL {
+                        get => $this->cm_province_tenant_id;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_province_tenant_id', $value);
+                            $this->cm_province_tenant_id = $value;
+                        }
+                    }
 
-	/**
-	 * Inactive
-	 *
-	 *
-	 *
-	 *
-	 *
-	 * @var int Type: boolean
-	 */
-	public ?int $cm_province_inactive = 0;
+    /**
+     * Country Code
+     *
+     *
+     *
+     * {domain{country_code}}
+     *
+     * @var string|null Domain: country_code Type: char
+     */
+    public string|null $cm_province_country_code = null {
+                        get => $this->cm_province_country_code;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_province_country_code', $value);
+                            $this->cm_province_country_code = $value;
+                        }
+                    }
+
+    /**
+     * Province Code
+     *
+     *
+     *
+     * {domain{province_code}}
+     *
+     * @var string|null Domain: province_code Type: varchar
+     */
+    public string|null $cm_province_province_code = null {
+                        get => $this->cm_province_province_code;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_province_province_code', $value);
+                            $this->cm_province_province_code = $value;
+                        }
+                    }
+
+    /**
+     * Name
+     *
+     *
+     *
+     * {domain{name}}
+     *
+     * @var string|null Domain: name Type: varchar
+     */
+    public string|null $cm_province_name = null {
+                        get => $this->cm_province_name;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_province_name', $value);
+                            $this->cm_province_name = $value;
+                        }
+                    }
+
+    /**
+     * Inactive
+     *
+     *
+     *
+     *
+     *
+     * @var int|null Type: boolean
+     */
+    public int|null $cm_province_inactive = 0 {
+                        get => $this->cm_province_inactive;
+                        set {
+                            $this->setFullPkAndFilledColumn('cm_province_inactive', $value);
+                            $this->cm_province_inactive = $value;
+                        }
+                    }
 }
